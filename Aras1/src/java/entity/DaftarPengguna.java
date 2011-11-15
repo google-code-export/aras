@@ -115,8 +115,21 @@ public class DaftarPengguna {
     }
 
     private boolean check(String namapengguna, String katasandi) {
-        throw new UnsupportedOperationException("Not yet implemented");
+        boolean result = false;
+        EntityManager em = getEntityManager();
+        try {
+            Query q = em.createQuery("SELECT a FROM Pengguna AS a WHERE a.namapengguna=:namapengguna AND a.katasandi=:katasandi");
+            q.setParameter("namapengguna", namapengguna);
+            q.setParameter("katasandi", katasandi);
+            int jumlahUser = ((Long) q.getSingleResult()).intValue();
+            if (jumlahUser == 1) {
+                result = true;
+            }
+        } finally {
+            em.close();
+        }
+        return result;
     }
 
-    
+        
 }
