@@ -12,19 +12,19 @@
         <title>Halaman Login</title>
     </head>
     <body>
-        <center><form method="post" action="prosesrekam">
+        <center><form method="post" action="home.jsp">
     <table border=0>
     <tr>
         <td>Nama Pengguna :</td>
-        <td><input class="input" type="text" name="username"></td>
+        <td><input class="input" type="text" name="namapengguna"></td>
     </tr>
     <tr>
         <td>Kata Sandi :</td>
-        <td><input class="input" type="password" name="password"></td>
+        <td><input class="input" type="password" name="katasandi"></td>
     </tr>    
     <tr>
         <td></td>
-        <td><input name="Submit" src="images/login-button.jpg" type="image" value="Masuk" /></td>
+        <td><input type="submit" value="Masuk" /></td>
     </tr>
     </table>
     </form></center>
