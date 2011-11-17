@@ -4,23 +4,18 @@
  */
 package servlets;
 
-import entity.DaftarPengguna;
-import entity.Pengguna;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Margo Utomo
  */
-@WebServlet(name = "Login", urlPatterns = {"/Login"})
 public class Login extends HttpServlet {
 
     /** 
@@ -34,16 +29,6 @@ public class Login extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        
-        /*String namapengguna = request.getParameter("namapengguna");
-        String katasandi = request.getParameter("katasandi");
-        
-        DaftarPengguna daftar = new DaftarPengguna ();
-        Pengguna pengguna = new Pengguna ();
-        HttpSession session = request.getSession();
-        boolean resultCheck = daftar.check(namapengguna, katasandi);
-        pengguna = daftar.getPengguna(namapengguna, katasandi);*/
-        
         try {
             RequestDispatcher rdp = request.getRequestDispatcher("pages/halamanlogin.jsp");
             rdp.forward(request, response);

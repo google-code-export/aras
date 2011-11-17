@@ -114,7 +114,7 @@ public class DaftarPengguna {
         return pengguna;
     }
 
-    private boolean check(String namapengguna, String katasandi) {
+    public boolean check(String namapengguna, String katasandi) {
         boolean result = false;
         EntityManager em = getEntityManager();
         try {
