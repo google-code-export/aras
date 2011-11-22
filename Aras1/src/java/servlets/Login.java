@@ -4,6 +4,8 @@
  */
 package servlets;
 
+import entity.DaftarPengguna;
+import entity.Pengguna;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -11,6 +13,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -29,9 +32,31 @@ public class Login extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        try {
-            RequestDispatcher rdp = request.getRequestDispatcher("pages/halamanlogin.jsp");
+        
+        String namapengguna = request.getParameter("namapengguna");
+        String katasandi = request.getParameter("katasandi");
+        
+        DaftarPengguna penggunax = new DaftarPengguna();
+        Pengguna pengguna = new Pengguna();
+        pengguna = penggunax.getPengguna(namapengguna, katasandi);
+        //Pengguna pengguna = penggunax.getPengguna("Nama Pengguna", "Kata Sandi"); 
+        
+        if (namapengguna.equals("") || katasandi.equals("")) {
+            request.setAttribute("Peringatan","Nama pengguna dan kata sandi harus di isi");
+            RequestDispatcher rdp = request.getRequestDispatcher("halamanlogin.jsp");
             rdp.forward(request, response);
+        } else {
+            HttpSession session = request.getSession(true);
+            
+            RequestDispatcher rdp = request.getRequestDispatcher("home.jsp");
+            rdp.forward(request, response);
+            
+        }
+        
+        
+        try {
+            //RequestDispatcher rdp = request.getRequestDispatcher("pages/halamanlogin.jsp");
+            //rdp.forward(request, response);
             /* TODO output your page here
             out.println("<html>");
             out.println("<head>");
