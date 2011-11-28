@@ -37,18 +37,25 @@ public class Login extends HttpServlet {
         String katasandi = request.getParameter("katasandi");
         
         DaftarPengguna penggunax = new DaftarPengguna();
-        Pengguna pengguna = new Pengguna();
-        pengguna = penggunax.getPengguna(namapengguna, katasandi);
+        //Pengguna pengguna = penggunax.getPengguna(namapengguna, katasandi);
         //Pengguna pengguna = penggunax.getPengguna("Nama Pengguna", "Kata Sandi"); 
         
-        if (namapengguna.equals("") || katasandi.equals("")) {
+        if (namapengguna=="" || katasandi=="") {
             request.setAttribute("Peringatan","Nama pengguna dan kata sandi harus di isi");
-            RequestDispatcher rdp = request.getRequestDispatcher("Login.jsp");
+            //response.sendRedirect("halamanlogin.jsp");
+            RequestDispatcher rdp = request.getRequestDispatcher("pages/halamanlogin.jsp");
             rdp.forward(request, response);
+       /* }else if(penggunax.check(namapengguna, katasandi)==false){
+            request.setAttribute("Peringatan","Nama pengguna atau kata sandi tidak ditemukan");
+            //response.sendRedirect("halamanlogin.jsp");
+            RequestDispatcher rdp = request.getRequestDispatcher("pages/halamanlogin.jsp");
+            rdp.forward(request, response);*/
         } else {
             HttpSession session = request.getSession(true);
+            session.setAttribute("nama", namapengguna);
+          //  session.setAttribute("pengguna", pengguna);
             
-            RequestDispatcher rdp = request.getRequestDispatcher("home.jsp");
+            RequestDispatcher rdp = request.getRequestDispatcher("index.jsp");
             rdp.forward(request, response);
             
         }
