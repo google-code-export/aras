@@ -18,10 +18,10 @@ import jpa.exceptions.NonexistentEntityException;
  * @author Margo Utomo
  */
 public class DaftarPengguna {
-    public DaftarPengguna() {
-        emf = Persistence.createEntityManagerFactory("ArasPU"); 
-    }
 
+    public DaftarPengguna() {
+        emf = Persistence.createEntityManagerFactory("ArasPU");
+    }
     private EntityManagerFactory emf = null;
 
     public EntityManager getEntityManager() {
@@ -41,8 +41,8 @@ public class DaftarPengguna {
         }
         return penggunax;
     }
-    
-    public Pengguna findPengguna(Integer id) {
+
+    public Pengguna findPengguna(Long id) {
         EntityManager em = getEntityManager();
         try {
             return em.find(Pengguna.class, id);
@@ -50,12 +50,13 @@ public class DaftarPengguna {
             em.close();
         }
     }
-    
+
     public void addPengguna(Pengguna pengguna) {
         EntityManager em = null;
+        em = getEntityManager();
+        em.getTransaction().begin();
         try {
-            em = getEntityManager();
-            em.getTransaction().begin();
+
             em.persist(pengguna);
             em.getTransaction().commit();
         } finally {
@@ -64,7 +65,7 @@ public class DaftarPengguna {
             }
         }
     }
-    
+
     public void updatePengguna(Pengguna pengguna) {
         EntityManager em = getEntityManager();
         try {
@@ -75,8 +76,8 @@ public class DaftarPengguna {
             em.close();
         }
     }
-    
-    public void deletePengguna(Integer id) throws NonexistentEntityException {
+
+    public void deletePengguna(Long id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -130,6 +131,4 @@ public class DaftarPengguna {
         }
         return result;
     }
-
-        
 }

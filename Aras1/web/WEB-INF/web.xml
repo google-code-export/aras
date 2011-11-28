@@ -8,13 +8,25 @@
         <servlet-name>ProsesTambahPengguna</servlet-name>
         <servlet-class>servlets.ProsesTambahPengguna</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>PenggunaServlet</servlet-name>
+        <servlet-class>servlets.PenggunaServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SimpanPenggunaServlet</servlet-name>
+        <servlet-class>servlets.SimpanPenggunaServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ProsesTambahPengguna</servlet-name>
-        <url-pattern>/ProsesTambahPengguna</url-pattern>
+        <servlet-name>PenggunaServlet</servlet-name>
+        <url-pattern>/pengguna</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SimpanPenggunaServlet</servlet-name>
+        <url-pattern>/simpan_pengguna</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

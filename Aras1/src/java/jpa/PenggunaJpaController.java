@@ -54,7 +54,7 @@ public class PenggunaJpaController implements Serializable {
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                Integer id = pengguna.getId();
+                Long id = pengguna.getId();
                 if (findPengguna(id) == null) {
                     throw new NonexistentEntityException("The pengguna with id " + id + " no longer exists.");
                 }
@@ -112,7 +112,7 @@ public class PenggunaJpaController implements Serializable {
         }
     }
 
-    public Pengguna findPengguna(Integer id) {
+    public Pengguna findPengguna(Long id) {
         EntityManager em = getEntityManager();
         try {
             return em.find(Pengguna.class, id);

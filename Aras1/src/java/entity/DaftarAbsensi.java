@@ -6,11 +6,11 @@ package entity;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.management.Query;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 import jpa.exceptions.NonexistentEntityException;
 
 
@@ -24,46 +24,7 @@ import jpa.exceptions.NonexistentEntityException;
 /**
  *
  * @author aan
- 
-public class DaftarAbsensi implements Serializable {
-    private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof DaftarAbsensi)) {
-            return false;
-        }
-        DaftarAbsensi other = (DaftarAbsensi) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "entity.DaftarAbsensi[ id=" + id + " ]";
-    }
- } */
+ */
 
 public class DaftarAbsensi {
     private List<Absensi> absensi;
@@ -78,23 +39,23 @@ public class DaftarAbsensi {
     }
 
     public List<Absensi> getAbsensi() {
-        List<Absensi> Absensi = new ArrayList<Absensi>();
+        List<Absensi> absensix = new ArrayList<Absensi>();
 
         EntityManager em = getEntityManager();
         try {
-            Query q = em.createQuery("SELECT a FROM absensi AS a");
-            Absensi absensi = q.getResultList();
-
+            Query q = em.createQuery("SELECT a FROM Absensi AS a");
+            absensix = q.getResultList ();
+           
         } finally {
             em.close();
         }
-        return absensi;
+        return absensix;
     }
     
-    public Absensi findAbsensi(int id) {
+    public Absensi findAbsensi(Long id) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(absensi.class, id);
+            return em.find(Absensi.class, id);
         } finally {
             em.close();
         }
@@ -125,19 +86,19 @@ public class DaftarAbsensi {
         }
     }
     
-    public void deleteAbsensi(int id) throws NonexistentEntityException {
+    public void deleteAbsensi(Long id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Absensi absensi;
+            Absensi absensix;
             try {
-                absensi = em.getReference(Absensi.class, id);
-                absensi.getId();
+                absensix = em.getReference(Absensi.class, id);
+                absensix.getId();
             } catch (EntityNotFoundException enfe) {
                 throw new NonexistentEntityException("The absensi with id " + id + " no longer exists.", enfe);
             }
-            em.remove(absensi);
+            em.remove(absensix);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -146,27 +107,24 @@ public class DaftarAbsensi {
         }
     }
 
-     
-
-
-public Absensi getAbsensi(String nama, String keterangan) {
-        Absensi absensi = null;
+     public Absensi getAbsensi(String namasiswa, String keterangan) {
+        Absensi absensix = null;
         EntityManager em = getEntityManager();
         try {
-            boolean hasilCheck = this.check(nama, keterangan);
+            boolean hasilCheck = this.check(namasiswa, keterangan);
             if (hasilCheck) {
-                javax.persistence.Query q = em.createQuery("SELECT a FROM Absensi AS a WHERE a.nama=:nama AND a.keterangan=:ketarangan");
-                q.setParameter("namapengguna", nama);
+                javax.persistence.Query q = em.createQuery("SELECT a FROM Absensi AS a WHERE a.namasiswa=:namasiswa AND a.keterangan=:keterangan");
+                q.setParameter("namasiswa", namasiswa);
                 q.setParameter ("keterangan", keterangan);
-                absensi = (Absensi) q.getSingleResult();
+                absensix = (Absensi) q.getSingleResult();
             }
         } finally {
             em.close();
         }
-        return absensi;
+        return absensix;
     }
           
-    private boolean check(String nama, String keterangan) {
+    private boolean check(String namasiswa, String keterangan) {
         
         
         throw new UnsupportedOperationException("Not yet implemented");

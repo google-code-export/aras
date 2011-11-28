@@ -5,101 +5,34 @@
 package entity;
 
 import java.io.Serializable;
-import javax.persistence.Basic;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author Margo Utomo
+ * @author aan
  */
 @Entity
-@Table(name = "pengguna")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "Pengguna.findAll", query = "SELECT p FROM Pengguna p"),
-    @NamedQuery(name = "Pengguna.findById", query = "SELECT p FROM Pengguna p WHERE p.id = :id"),
-    @NamedQuery(name = "Pengguna.findByNama", query = "SELECT p FROM Pengguna p WHERE p.nama = :nama"),
-    @NamedQuery(name = "Pengguna.findByNip", query = "SELECT p FROM Pengguna p WHERE p.nip = :nip"),
-    @NamedQuery(name = "Pengguna.findByNamapengguna", query = "SELECT p FROM Pengguna p WHERE p.namapengguna = :namapengguna"),
-    @NamedQuery(name = "Pengguna.findByKatasandi", query = "SELECT p FROM Pengguna p WHERE p.katasandi = :katasandi"),
-    @NamedQuery(name = "Pengguna.findByNomortelepon", query = "SELECT p FROM Pengguna p WHERE p.nomortelepon = :nomortelepon")})
 public class Pengguna implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "id")
-    private Integer id;
-    @Basic(optional = false)
-    @Column(name = "nama")
-    private String nama;
-    @Basic(optional = false)
-    @Column(name = "nip")
-    private String nip;
-    @Basic(optional = false)
-    @Column(name = "namapengguna")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String namapengguna;
-    @Basic(optional = false)
-    @Column(name = "katasandi")
+    private String nama;
     private String katasandi;
-    @Basic(optional = false)
-    @Column(name = "nomortelepon")
-    private String nomortelepon;
+    private String nip;
+    private String alamat;
+    private String telp;
 
-    public Pengguna() {
+    public String getAlamat() {
+        return alamat;
     }
 
-    public Pengguna(Integer id) {
-        this.id = id;
-    }
-
-    public Pengguna(Integer id, String nama, String nip, String namapengguna, String katasandi, String nomortelepon) {
-        this.id = id;
-        this.nama = nama;
-        this.nip = nip;
-        this.namapengguna = namapengguna;
-        this.katasandi = katasandi;
-        this.nomortelepon = nomortelepon;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getNama() {
-        return nama;
-    }
-
-    public void setNama(String nama) {
-        this.nama = nama;
-    }
-
-    public String getNip() {
-        return nip;
-    }
-
-    public void setNip(String nip) {
-        this.nip = nip;
-    }
-
-    public String getNamapengguna() {
-        return namapengguna;
-    }
-
-    public void setNamapengguna(String namapengguna) {
-        this.namapengguna = namapengguna;
+    public void setAlamat(String alamat) {
+        this.alamat = alamat;
     }
 
     public String getKatasandi() {
@@ -110,12 +43,44 @@ public class Pengguna implements Serializable {
         this.katasandi = katasandi;
     }
 
-    public String getNomortelepon() {
-        return nomortelepon;
+    public String getNama() {
+        return nama;
     }
 
-    public void setNomortelepon(String nomortelepon) {
-        this.nomortelepon = nomortelepon;
+    public void setNama(String nama) {
+        this.nama = nama;
+    }
+
+    public String getNamapengguna() {
+        return namapengguna;
+    }
+
+    public void setNamapengguna(String namapengguna) {
+        this.namapengguna = namapengguna;
+    }
+
+    public String getNip() {
+        return nip;
+    }
+
+    public void setNip(String nip) {
+        this.nip = nip;
+    }
+
+    public String getTelp() {
+        return telp;
+    }
+
+    public void setTelp(String telp) {
+        this.telp = telp;
+    }
+    
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     @Override
