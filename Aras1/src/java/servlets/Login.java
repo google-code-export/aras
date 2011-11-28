@@ -43,7 +43,7 @@ public class Login extends HttpServlet {
         
         if (namapengguna.equals("") || katasandi.equals("")) {
             request.setAttribute("Peringatan","Nama pengguna dan kata sandi harus di isi");
-            RequestDispatcher rdp = request.getRequestDispatcher("halamanlogin.jsp");
+            RequestDispatcher rdp = request.getRequestDispatcher("Login.jsp");
             rdp.forward(request, response);
         } else {
             HttpSession session = request.getSession(true);
