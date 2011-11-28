@@ -12,7 +12,7 @@
         <title>Halaman Login</title>
     </head>
     <body>
-        <center><form method="post" action="home.jsp">
+        <center><form method="post" action="Login">
     <table border=0>
     <tr>
         <td>Nama Pengguna :</td>
