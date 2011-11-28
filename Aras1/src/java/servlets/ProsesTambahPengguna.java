@@ -47,7 +47,7 @@ public class ProsesTambahPengguna extends HttpServlet {
             pengguna.setNamapengguna(namapengguna);
             pengguna.setNama(nama);
             pengguna.setNip(nip);
-            pengguna.setNomortelepon(nomortelepon);
+            pengguna.setTelp(nomortelepon);
         }
         
         try {
