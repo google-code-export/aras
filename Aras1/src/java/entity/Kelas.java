@@ -19,34 +19,36 @@ public class Kelas implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
-    private String kelas;
-    private String namaGuru;
-   
-    public Integer getId() {
+    private Long id;
+    private String namakelas;
+    private String namaguru;
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getKelas() {
-        return kelas;
-    }
-    
-    public void setKelas (String kelas) {
-        this.kelas = kelas;
     }
     
     public String getNamaguru() {
-        return namaGuru;
+        return namaguru;
+    }
+
+    public void setNamaguru(String namaguru) {
+        this.namaguru = namaguru;
+    }
+
+    public String getNamakelas() {
+        return namakelas;
+    }
+
+    public void setNamakelas(String namakelas) {
+        this.namakelas = namakelas;
     }
     
-    public void setNamaguru (String namaGuru) {
-        this.namaGuru = namaGuru;
-    }
     
+
     @Override
     public int hashCode() {
         int hash = 0;
