@@ -8,6 +8,7 @@ import entity.DaftarSiswa;
 import entity.Siswa;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -66,6 +67,8 @@ public class TambahSiswa extends HttpServlet {
             out.println("</body>");
             out.println("</html>");
              */
+            RequestDispatcher rdp = request.getRequestDispatcher("/pages/TambahSiswa.jsp") ;
+            rdp.forward(request, response);
         } finally {            
             out.close();
         }
