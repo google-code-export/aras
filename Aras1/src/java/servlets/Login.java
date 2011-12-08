@@ -55,7 +55,7 @@ public class Login extends HttpServlet {
             session.setAttribute("nama", namapengguna);
           //  session.setAttribute("pengguna", pengguna);
             
-            RequestDispatcher rdp = request.getRequestDispatcher("index.jsp");
+            RequestDispatcher rdp = request.getRequestDispatcher("/index.jsp");
             rdp.forward(request, response);
             
         }
