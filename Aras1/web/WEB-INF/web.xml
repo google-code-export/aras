@@ -16,6 +16,26 @@
         <servlet-name>SimpanPenggunaServlet</servlet-name>
         <servlet-class>servlets.SimpanPenggunaServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>TambahSiswa</servlet-name>
+        <servlet-class>servlets.TambahSiswa</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UbahSiswa</servlet-name>
+        <servlet-class>servlets.UbahSiswa</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Logout</servlet-name>
+        <servlet-class>servlets.Logout</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Kelas</servlet-name>
+        <servlet-class>servlets.KelasServlets</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SimpanKelas</servlet-name>
+        <servlet-class>servlets.SimpanKelasServlets</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -27,6 +47,26 @@
     <servlet-mapping>
         <servlet-name>SimpanPenggunaServlet</servlet-name>
         <url-pattern>/simpan_pengguna</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TambahSiswa</servlet-name>
+        <url-pattern>/TambahSiswa</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UbahSiswa</servlet-name>
+        <url-pattern>/UbahSiswa</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Logout</servlet-name>
+        <url-pattern>/Logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Kelas</servlet-name>
+        <url-pattern>/kelas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SimpanKelas</servlet-name>
+        <url-pattern>/simpankelas</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
