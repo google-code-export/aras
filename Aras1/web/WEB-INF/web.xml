@@ -36,6 +36,14 @@
         <servlet-name>SimpanKelas</servlet-name>
         <servlet-class>servlets.SimpanKelasServlets</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AbsensiServlet</servlet-name>
+        <servlet-class>servlets.AbsensiServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TambahAbsensiServlet</servlet-name>
+        <servlet-class>servlets.TambahAbsensiServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -67,6 +75,14 @@
     <servlet-mapping>
         <servlet-name>SimpanKelas</servlet-name>
         <url-pattern>/simpankelas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AbsensiServlet</servlet-name>
+        <url-pattern>/absensi</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TambahAbsensiServlet</servlet-name>
+        <url-pattern>/tambah_absensi</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
