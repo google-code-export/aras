@@ -40,16 +40,16 @@ public class Login extends HttpServlet {
         //Pengguna pengguna = penggunax.getPengguna(namapengguna, katasandi);
         //Pengguna pengguna = penggunax.getPengguna("Nama Pengguna", "Kata Sandi"); 
         
-        if (namapengguna=="" || katasandi=="") {
+        if (namapengguna == "" || katasandi == "") {
             request.setAttribute("Peringatan","Nama pengguna dan kata sandi harus di isi");
             //response.sendRedirect("halamanlogin.jsp");
             RequestDispatcher rdp = request.getRequestDispatcher("pages/halamanlogin.jsp");
             rdp.forward(request, response);
-       /* }else if(penggunax.check(namapengguna, katasandi)==false){
+       }else if(penggunax.check(namapengguna, katasandi)==false){
             request.setAttribute("Peringatan","Nama pengguna atau kata sandi tidak ditemukan");
             //response.sendRedirect("halamanlogin.jsp");
             RequestDispatcher rdp = request.getRequestDispatcher("pages/halamanlogin.jsp");
-            rdp.forward(request, response);*/
+            rdp.forward(request, response);
         } else {
             HttpSession session = request.getSession(true);
             session.setAttribute("nama", namapengguna);
