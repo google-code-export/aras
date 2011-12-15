@@ -119,7 +119,7 @@ public class DaftarPengguna {
         boolean result = false;
         EntityManager em = getEntityManager();
         try {
-            Query q = em.createQuery("SELECT a FROM Pengguna AS a WHERE a.namapengguna=:namapengguna AND a.katasandi=:katasandi");
+            Query q = em.createQuery("SELECT COUNT (a) FROM Pengguna AS a WHERE a.namapengguna=:namapengguna AND a.katasandi=:katasandi");
             q.setParameter("namapengguna", namapengguna);
             q.setParameter("katasandi", katasandi);
             int jumlahUser = ((Long) q.getSingleResult()).intValue();
