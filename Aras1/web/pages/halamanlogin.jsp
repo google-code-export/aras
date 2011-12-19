@@ -13,13 +13,17 @@
     </head>
     <body>
         <center><form method="post" action="Login">
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <p><strong>Selamat Datang di ARAS</strong></p>
     <table border=0>
     <tr>
-        <td>Nama Pengguna :</td>
+        <td><div align="right">Nama Pengguna :</div></td>
         <td><input class="input" type="text" name="namapengguna"></td>
     </tr>
     <tr>
-        <td>Kata Sandi :</td>
+        <td><div align="right">Kata Sandi :</div></td>
         <td><input class="input" type="password" name="katasandi"></td>
     </tr>    
     <tr>
