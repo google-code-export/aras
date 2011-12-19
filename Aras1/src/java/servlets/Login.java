@@ -37,7 +37,8 @@ public class Login extends HttpServlet {
         String katasandi = request.getParameter("katasandi");
         
         DaftarPengguna penggunax = new DaftarPengguna();
-        //Pengguna pengguna = penggunax.getPengguna(namapengguna, katasandi);
+        Pengguna pengguna = new Pengguna();
+        pengguna = penggunax.getPengguna(namapengguna, katasandi);
         //Pengguna pengguna = penggunax.getPengguna("Nama Pengguna", "Kata Sandi"); 
         
         if (namapengguna == "" || katasandi == "") {
@@ -52,11 +53,24 @@ public class Login extends HttpServlet {
             rdp.forward(request, response);
         } else {
             HttpSession session = request.getSession(true);
-            session.setAttribute("nama", namapengguna);
+            if(pengguna.getPeran().equals("admin")){
+                session.setAttribute("namapengguna", namapengguna);
+                session.setAttribute("peran", pengguna.getPeran() );
+                response.sendRedirect("index");
+            } else if(pengguna.getPeran().equals("guru") ){
+                session.setAttribute("namapengguna", namapengguna);
+                session.setAttribute("peran", pengguna.getPeran());
+                request.getRequestDispatcher("index").forward(request, response);
+            } else if (pengguna.getPeran().equals("TU")){
+                session.setAttribute("namapengguna", namapengguna);
+                session.setAttribute("peran", pengguna.getPeran());
+                request.getRequestDispatcher("index").forward(request, response);
+            }
+            //session.setAttribute("nama", namapengguna);
           //  session.setAttribute("pengguna", pengguna);
             
-            RequestDispatcher rdp = request.getRequestDispatcher("/index.jsp");
-            rdp.forward(request, response);
+            //RequestDispatcher rdp = request.getRequestDispatcher("/index.jsp");
+            //rdp.forward(request, response);
             
         }
         
@@ -75,7 +89,7 @@ public class Login extends HttpServlet {
             out.println("</html>");
              */
         } finally {            
-            out.close();
+           out.close();
         }
     }
 

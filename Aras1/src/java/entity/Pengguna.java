@@ -26,6 +26,7 @@ public class Pengguna implements Serializable {
     private String nip;
     private String alamat;
     private String telp;
+    private String peran;
 
     public String getAlamat() {
         return alamat;
@@ -73,6 +74,14 @@ public class Pengguna implements Serializable {
 
     public void setTelp(String telp) {
         this.telp = telp;
+    }
+    
+    public void setPeran(String peran){
+        this.peran = peran;
+    }
+    
+    public String getPeran(){
+        return peran;
     }
     
     public Long getId() {
