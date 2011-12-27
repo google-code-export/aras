@@ -3,7 +3,6 @@
     <servlet>
         <servlet-name>Login</servlet-name>
         <servlet-class>servlets.Login</servlet-class>
-    
     </servlet>
     <servlet>
         <servlet-name>ProsesTambahPengguna</servlet-name>
@@ -34,8 +33,8 @@
         <servlet-class>servlets.KelasServlets</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>SimpanKelas</servlet-name>
-        <servlet-class>servlets.SimpanKelasServlets</servlet-class>
+        <servlet-name>TambahKelasServlets</servlet-name>
+        <servlet-class>servlets.TambahKelasServlets</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AbsensiServlet</servlet-name>
@@ -78,10 +77,6 @@
         <url-pattern>/kelas</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>SimpanKelas</servlet-name>
-        <url-pattern>/simpankelas</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>AbsensiServlet</servlet-name>
         <url-pattern>/absensi</url-pattern>
     </servlet-mapping>
@@ -92,6 +87,10 @@
     <servlet-mapping>
         <servlet-name>SiswaServlet</servlet-name>
         <url-pattern>/SiswaServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TambahKelasServlets</servlet-name>
+        <url-pattern>/tambah_kelas</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

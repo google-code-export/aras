@@ -17,8 +17,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Heti Liyana
  */
-//@WebServlet(name = "SimpanKelasServlets", urlPatterns = {"/simpan_kelas"})
-public class SimpanKelasServlets extends HttpServlet {
+//@WebServlet(name = "TambahKelasServlets", urlPatterns = {"/tambah_kelas"})
+public class TambahKelasServlets extends HttpServlet {
 
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -32,8 +32,8 @@ public class SimpanKelasServlets extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         
-        String nama = (String) request.getAttribute("namakelas");
-        String guru = (String) request.getAttribute("namaguru");
+        String nama = request.getParameter("namakelas");
+        String guru = request.getParameter("namaguru");
         DaftarKelas daftar = new DaftarKelas ();
         Kelas kelas = new Kelas ();
         
@@ -41,7 +41,7 @@ public class SimpanKelasServlets extends HttpServlet {
         kelas.setNamaguru(guru);
         
         daftar.addKelas(kelas);
-        response.sendRedirect("pages/kelas.jsp");
+        response.sendRedirect("index.jsp");
         
         
         

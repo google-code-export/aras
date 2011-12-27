@@ -13,7 +13,7 @@
     </head>
     <body>
         <h1>Menambah Kelas</h1>
-        <form action="simpan_kelas" method="POST">
+        <form action="tambah_kelas" method="POST">
             Nama Kelas : <input type="text" name="namakelas" value="" /> <br>
             Nama Guru Wali : <input type="text" name="namaguru" value="" /> <br>
             <input type="submit" value="simpan" />

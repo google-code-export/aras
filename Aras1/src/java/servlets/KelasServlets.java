@@ -6,6 +6,7 @@ package servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -31,6 +32,8 @@ public class KelasServlets extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
+            RequestDispatcher rdp = request.getRequestDispatcher("pages/kelas.jsp");
+            rdp.forward(request, response);
             /* TODO output your page here
             out.println("<html>");
             out.println("<head>");

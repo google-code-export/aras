@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context antiJARLocking="true" path="/Aras1">
   <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" maxActive="20" maxIdle="10" maxWait="-1" name="aras" password="" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/aras" username="root"/>
+  <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" maxActive="20" maxIdle="10" maxWait="-1" name="aras1" password="" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/aras" username="root"/>
+  <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" maxActive="20" maxIdle="10" maxWait="-1" name="aras-lg" password="" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/aras1" username="root"/>
 </Context>
