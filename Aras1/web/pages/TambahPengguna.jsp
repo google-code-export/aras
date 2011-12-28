@@ -34,6 +34,11 @@
         <td> Nomor Telepon :</td>
         <td><input class="input" type="text" name="nomortelepon"></td>
     </tr>
+    <tr> 
+        <td> Peran : </td>
+        <td><input class="input" type="text" name="peran"></td>
+    </tr>
+    
     <tr>
         <td></td>
         <td><input type="submit" value="Simpan" /></td>
