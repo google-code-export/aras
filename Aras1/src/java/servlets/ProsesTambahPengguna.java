@@ -8,6 +8,7 @@ import entity.DaftarPengguna;
 import entity.Pengguna;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -35,24 +36,35 @@ public class ProsesTambahPengguna extends HttpServlet {
         String katasandi = request.getParameter("katasandi");
         String nama = request.getParameter("nama");
         String nip = request.getParameter("nip");
-        String nomortelepon = request.getParameter("nomortelepon");
+        String telp = request.getParameter("telp");
         String peran = request.getParameter("peran");
         
         DaftarPengguna penggunax = new DaftarPengguna();
         Pengguna pengguna = new Pengguna();
         
-        if (namapengguna.equals("") && katasandi.equals("") && nama.equals("") && nip.equals("") && nomortelepon.equals("") && peran.equals("")) {
+        if (namapengguna.equals("") && katasandi.equals("") && nama.equals("") && nip.equals("") && telp.equals("") && peran.equals("")) {
             request.setAttribute("Peringatan","Semua kolom harus di isi");
+            RequestDispatcher rdp = request.getRequestDispatcher("pengguna");
+            rdp.forward(request, response);
+            
+        }else if(!nip.matches("[0-9]*")){
+            request.setAttribute("Peringatan", "NIP hanya boleh di isi dengan angka saja");
+            RequestDispatcher rdp = request.getRequestDispatcher("pengguna");
+            rdp.forward(request, response);
+            
         }else{
             pengguna.setKatasandi(katasandi);
             pengguna.setNamapengguna(namapengguna);
             pengguna.setNama(nama);
             pengguna.setNip(nip);
-            pengguna.setTelp(nomortelepon);
+            pengguna.setTelp(telp);
             pengguna.setPeran(peran);
+            
+            penggunax.addPengguna(pengguna);
         }
         
         try {
+             response.sendRedirect("pengguna");
             /* TODO output your page here
             out.println("<html>");
             out.println("<head>");
