@@ -27,6 +27,10 @@ public class Absensi implements Serializable {
     private String keterangan;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date tglAbsensi;
+       
+       
+    @ManyToOne
+    private Siswa siswa;
     @ManyToOne
     private Kelas kelas;
     //@ManyToOne
