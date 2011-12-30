@@ -5,6 +5,7 @@
     <class>entity.Absensi</class>
     <class>entity.Kelas</class>
     <class>entity.Pengguna</class>
+    <class>entity.Periode</class>
     <class>entity.Siswa</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
