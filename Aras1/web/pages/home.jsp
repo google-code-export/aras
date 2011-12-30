@@ -18,42 +18,46 @@ body {
 
 <body>
 <div class="container">
-  <div class="header"><!-- end .header --><img src="../images/arasz1.JPG" width="960" height="145" /></div>
+  <div class="header"><!-- end .header --><img src="../images/arasz1.JPG" width="940" height="145" /></div>
   <div class="sidebar1">
     <table width="162" border="1">
       <tr>
-        <td bgcolor="#41A6F8">Halaman Muka</td>
-      </tr>
-      <tr>
-        <td>Pengguna</td>
-      </tr>
-      <tr>
-        <td>Siswa</td>
-      </tr>
-      <tr>
-        <td>Kelas</td>
-      </tr>
-      <tr>
-        <td>Semester</td>
-      </tr>
-      <tr>
-        <td>Konfirmasi SMS</td>
-      </tr>
-      <tr>
-        <td>Laporan</td>
-      </tr>
-      <tr>
-        <td>Cetak Data Siswa</td>
+        
       </tr>
     </table>
   <!-- end .sidebar1 --></div>
   <div class="content">
-    <form id="form1" name="form1" method="post" action="">
-      <p>Nama Sekolah</p>
-    </form>
-    <h1>Selamat Datang!</h1>
+    <table width="100%" height="232" border="0">
+    <tr></tr>
+    <tr></tr>
+    <tr>
+      <td width="22%" height="228"><table width="100%" border="2" align="center">
+        <tr>
+          <td valign="top">Halaman Muka</td>
+        </tr>
+        <tr>
+          <td valign="top">Pengguna</td>
+        </tr>
+        <tr>
+          <td valign="top">Siswa</td>
+        </tr>
+        <tr>
+          <td valign="top">Kelas</td>
+        </tr>
+        <tr>
+          <td valign="top">Semester</td>
+        </tr>
+        <tr>
+          <td height="23" align="left" valign="top">Absensi</td>
+        </tr>
+      </table></td>
+      <td width="78%">&nbsp;</td>
+    </tr>
+    </table>
+    <p>&nbsp;</p>
+    <h1>&nbsp;</h1>
 <p>dsgsbhfg jry jy jyt</p>
-    <!-- end .content --></div>
+  <!-- end .content --></div>
   <div class="footer">
     <p>Copyright 2011</p>
     <p>Margo Utomo - M. Komara Novianto - Heti Liyana E.</p>

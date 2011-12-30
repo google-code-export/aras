@@ -41,7 +41,7 @@ public class TambahKelasServlet extends HttpServlet {
         kelas.setNamaguru(guru);
         
         daftar.addKelas(kelas);
-        response.sendRedirect("kelas");
+        response.sendRedirect("tambahkelas");
         
         
         
