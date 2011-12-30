@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author aan
  */
+@WebServlet(name = "Pengguna", urlPatterns = {"/pengguna"})
 public class PenggunaServlet extends HttpServlet {
 
     /** 
@@ -29,6 +31,9 @@ public class PenggunaServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
+        
+        RequestDispatcher rdp = request.getRequestDispatcher("pages/pengguna1.jsp");
+            rdp.forward(request, response);
         try {
             /* TODO output your page here
             out.println("<html>");
@@ -41,8 +46,8 @@ public class PenggunaServlet extends HttpServlet {
             out.println("</html>");
              */
             
-            RequestDispatcher rdp = request.getRequestDispatcher("pages/pengguna.jsp");
-            rdp.forward(request, response);
+            /*RequestDispatcher rdp = request.getRequestDispatcher("pages/pengguna.jsp");
+            rdp.forward(request, response);*/
         } finally {            
             out.close();
         }
