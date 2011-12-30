@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Halaman Muka</title>
-<link href="images/coba-indeks.css" rel="stylesheet" type="text/css" />
+<link href="style/coba-indeks.css" rel="stylesheet" type="text/css" />
 <style type="text/css">
 body,td,th {
 	color: #000;
@@ -18,9 +18,9 @@ body {
 
 <body>
 <div class="container">
-  <div class="header"><!-- end .header --><img src="../images/arasz1.JPG" width="965" height="145" /></div>
+  <div class="header"><!-- end .header --><img src="../images/arasz1.JPG" width="960" height="145" /></div>
   <div class="sidebar1">
-    <table width="160" border="1">
+    <table width="162" border="1">
       <tr>
         <td bgcolor="#41A6F8">Halaman Muka</td>
       </tr>

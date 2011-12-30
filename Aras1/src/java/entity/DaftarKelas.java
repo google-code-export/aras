@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 package entity;
-
+import entity.Kelas;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Query;
@@ -33,7 +33,7 @@ public class DaftarKelas {
 
         EntityManager em = getEntityManager();
         try {
-            Query q = em.createQuery("SELECT a FROM Kelas AS a");
+            Query q = em.createQuery("SELECT Object(a) FROM Kelas AS a");
             kelasx = q.getResultList();
 
         } finally {
@@ -104,7 +104,7 @@ public class DaftarKelas {
         try {
             boolean hasilCheck = this.check(namakelas, namaguru);
             if (hasilCheck) {
-                Query q = (Query) em.createQuery("SELECT a FROM Kelas AS a WHERE a.namaKelas=:namaKelas AND a.katasandi=:katasandi");
+                Query q = (Query) em.createQuery("SELECT a FROM Kelas AS a WHERE a.namaKelas=:namaKelas AND a.namaGuru=:namaGuru");
                 q.setParameter("namaKelas", namakelas);
                 q.setParameter("namaGuru", namaguru);
                 kelas = (Kelas) q.getSingleResult();
@@ -119,7 +119,7 @@ public class DaftarKelas {
         boolean result = false;
         EntityManager em = getEntityManager();
         try {
-            Query q = (Query) em.createQuery("SELECT a FROM Kelas AS a WHERE a.namaKelas=:namaKelas AND a.katasandi=:katasandi");
+            Query q = (Query) em.createQuery("SELECT a FROM Kelas AS a WHERE a.namaKelas=:namaKelas AND a.namaGuru=:namaGuru");
             q.setParameter("namaKelas", namakelas);
             q.setParameter("namaGuru", namaguru);
             int jumlahKelas = ((Long) q.getSingleResult()).intValue();
