@@ -4,8 +4,6 @@
  */
 package servlets;
 
-import entity.DaftarPengguna;
-import entity.Pengguna;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -15,9 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Margo Utomo
+ * @author margoutomo
  */
-public class ProsesTambahPengguna extends HttpServlet {
+public class ProsesUbahSiswa extends HttpServlet {
 
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -30,36 +28,14 @@ public class ProsesTambahPengguna extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        
-        String namapengguna = request.getParameter("namapengguna");
-        String katasandi = request.getParameter("katasandi");
-        String nama = request.getParameter("nama");
-        String nip = request.getParameter("nip");
-        String nomortelepon = request.getParameter("nomortelepon");
-        String peran = request.getParameter("peran");
-        
-        DaftarPengguna penggunax = new DaftarPengguna();
-        Pengguna pengguna = new Pengguna();
-        
-        if (namapengguna.equals("") && katasandi.equals("") && nama.equals("") && nip.equals("") && nomortelepon.equals("") && peran.equals("")) {
-            request.setAttribute("Peringatan","Semua kolom harus di isi");
-        }else{
-            pengguna.setKatasandi(katasandi);
-            pengguna.setNamapengguna(namapengguna);
-            pengguna.setNama(nama);
-            pengguna.setNip(nip);
-            pengguna.setTelp(nomortelepon);
-            pengguna.setPeran(peran);
-        }
-        
         try {
             /* TODO output your page here
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ProsesTambahPengguna</title>");  
+            out.println("<title>Servlet ProsesUbahSiswa</title>");  
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ProsesTambahPengguna at " + request.getContextPath () + "</h1>");
+            out.println("<h1>Servlet ProsesUbahSiswa at " + request.getContextPath () + "</h1>");
             out.println("</body>");
             out.println("</html>");
              */

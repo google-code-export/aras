@@ -97,6 +97,40 @@ public class DaftarSiswa {
         }
     }
     
+    public Siswa getSiswa(String nis, String namasiswa) {
+        Siswa siswa = null;
+        EntityManager em = getEntityManager();
+        try {
+            boolean hasilCheck = this.check(nis, namasiswa);
+            if (hasilCheck) {
+                Query q = (Query) em.createQuery("SELECT a FROM Siswa AS a WHERE a.nis=:nis AND a.namasiswa=:namasiswa");
+                q.setParameter("nis", nis);
+                q.setParameter("namasiswa", namasiswa);
+                siswa = (Siswa) q.getSingleResult();
+            }
+        } finally {
+            em.close();
+        }
+        return siswa;
+    }
+
+    public boolean check(String nis, String namasiswa) {
+        boolean result = false;
+        EntityManager em = getEntityManager();
+        try {
+            Query q = (Query) em.createQuery("SELECT a FROM Siswa AS a WHERE a.nis=:nis AND a.namasiswa=:namasiswa");
+                q.setParameter("nis", nis);
+                q.setParameter("namasiswa", namasiswa);
+            int jumlahSiswa = ((Integer) q.getSingleResult()).intValue();
+            if (jumlahSiswa == 1) {
+                result = true;
+            }
+        } finally {
+            em.close();
+        }
+        return result;
+    }
+    
     
     
 }
