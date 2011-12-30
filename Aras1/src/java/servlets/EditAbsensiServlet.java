@@ -4,13 +4,8 @@
  */
 package servlets;
 
-import entity.Absensi;
-//import entity.DaftarAbsensi;
-import entity.DaftarAbsensi;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author aan
  */
-public class AbsensiServlet extends HttpServlet {
+public class EditAbsensiServlet extends HttpServlet {
 
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -33,27 +28,17 @@ public class AbsensiServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        
-        DaftarAbsensi daftar = new DaftarAbsensi ();
-        List <Absensi> absen = (List <Absensi>) daftar.getAbsensi();
-        //List <Absensi> absen = (List <Absensi>) daftar.getAbsensi();
-        
-        request.setAttribute("siswa", absen);
-        
-        
         try {
             /* TODO output your page here
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet AbsensiServlet</title>");  
+            out.println("<title>Servlet EditAbsensiServlet</title>");  
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet AbsensiServlet at " + request.getContextPath () + "</h1>");
+            out.println("<h1>Servlet EditAbsensiServlet at " + request.getContextPath () + "</h1>");
             out.println("</body>");
             out.println("</html>");
              */
-            RequestDispatcher rdp = request.getRequestDispatcher("pages/absensi.jsp");
-            rdp.forward(request, response);
         } finally {            
             out.close();
         }

@@ -16,13 +16,12 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>tambahabsensi</title>
         
+        
         <% List <Absensi> siswa = (List)request.getAttribute("siswa"); %>
         <% Iterator <Absensi> iterator = siswa.iterator (); %>
         
-        
-        
-          
     </head>
+    
     <body>
         <h1>Tambah Absensi</h1>
         <form method="post">
