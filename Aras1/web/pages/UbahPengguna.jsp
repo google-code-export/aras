@@ -47,7 +47,8 @@
     
     <tr>
         <td></td>
-        <td><input type="submit" value="Simpan" onclick ="this.form.action='SimpanUbahPengguna';this.form.submit"></td>
+        <td><input type="submit" value="Simpan" onclick ="this.form.action='SimpanUbahPengguna';this.form.submit()">
+        <input type="reset" value="Batal" onclick ="this.form.action='BatalPengguna';this.form.submit()">
         <td><input type="button" value="Hapus" onclick="this.form.action='HapusPengguna';this.form.submit();"></td>
     </tr>
     </table>
