@@ -48,6 +48,30 @@
         <servlet-name>ProsesTambahPengguna</servlet-name>
         <servlet-class>servlets.ProsesTambahPengguna</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>mbuh</servlet-name>
+        <servlet-class>servlets.ProsesTambahPengguna</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Penggunalama</servlet-name>
+        <jsp-file>/pages/pengguna.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>UbahPengguna</servlet-name>
+        <servlet-class>servlets.ProsesUbahPengguna</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SimpanUbahPengguna</servlet-name>
+        <servlet-class>servlets.SimpanUbahPengguna</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TambahSemesterServlet</servlet-name>
+        <servlet-class>servlets.TambahSemesterServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SemesterServlet</servlet-name>
+        <servlet-class>servlets.SemesterServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -95,6 +119,30 @@
     <servlet-mapping>
         <servlet-name>ProsesTambahPengguna</servlet-name>
         <url-pattern>/prosestambahpengguna</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>mbuh</servlet-name>
+        <url-pattern>/mbuh</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Penggunalama</servlet-name>
+        <url-pattern>/penggunalama</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UbahPengguna</servlet-name>
+        <url-pattern>/ubahpengguna</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SimpanUbahPengguna</servlet-name>
+        <url-pattern>/SimpanUbahPengguna</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SemesterServlet</servlet-name>
+        <url-pattern>/semester</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TambahSemesterServlet</servlet-name>
+        <url-pattern>/tambah_semester</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

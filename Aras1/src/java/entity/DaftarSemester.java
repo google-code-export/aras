@@ -5,7 +5,7 @@
 package entity;
 
 
-import entity.Kelas;
+import entity.Semester;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,9 +20,9 @@ import jpa.exceptions.NonexistentEntityException;
  *
  * @author Heti Liyana
  */
-public class DaftarKelas implements Serializable {
+public class DaftarSemester implements Serializable {
 
-    public DaftarKelas() {
+    public DaftarSemester() {
         emf = Persistence.createEntityManagerFactory("ArasPU");
     }
     private EntityManagerFactory emf = null;
@@ -35,11 +35,11 @@ public class DaftarKelas implements Serializable {
         boolean result = false;
         EntityManager em = getEntityManager();
         try {
-            Query q = em.createQuery("SELECT count(o) FROM Kelas AS o WHERE o.id=:id");
+            Query q = em.createQuery("SELECT count(o) FROM Semester AS o WHERE o.id=:id");
             q.setParameter("id", id);
 
-            int jumlahKelas = ((Long) q.getSingleResult()).intValue();
-            if (jumlahKelas > 0) {
+            int jumlahSemester = ((Long) q.getSingleResult()).intValue();
+            if (jumlahSemester > 0) {
                 result = true;
             }
         } finally {
@@ -48,41 +48,41 @@ public class DaftarKelas implements Serializable {
         return result;
     }
 
-    public Kelas getKelas(Long id) {
-        Kelas kelas = null;
+    public Semester getSemester(Long id) {
+        Semester semester = null;
         EntityManager em = getEntityManager();
         try {
             boolean hasilCheck = this.check(id);
             if (hasilCheck) {
-                Query q = em.createQuery("SELECT object(o) FROM Kelas AS o WHERE o.id=:id");
+                Query q = em.createQuery("SELECT object(o) FROM Semester AS o WHERE o.id=:id");
                 q.setParameter("id", id);
-                kelas = (Kelas) q.getSingleResult();
+                semester = (Semester) q.getSingleResult();
             }
         } finally {
             em.close();
         }
-        return kelas;
+        return semester;
     }
     
-    public List<Kelas> getKelas() {
-        List<Kelas> Kelass = new ArrayList<Kelas>();
+    public List<Semester> getSemester() {
+        List<Semester> Semesters = new ArrayList<Semester>();
 
         EntityManager em = getEntityManager();
         try {
-            Query q = em.createQuery("SELECT object(o) FROM Kelas AS o");
-            Kelass = q.getResultList();
+            Query q = em.createQuery("SELECT object(o) FROM Semester AS o");
+            Semesters = q.getResultList();
 
         } finally {
             em.close();
         }
-        return Kelass;
+        return Semesters;
     }
 
-    public void editKelas(Kelas kelas) {
+    public void editSemester(Semester semester) {
         EntityManager em = getEntityManager();
         em.getTransaction().begin();
         try {
-            em.merge(kelas);
+            em.merge(semester);
             em.getTransaction().commit();
         } catch (Exception e) {
             em.getTransaction().rollback();
@@ -91,11 +91,11 @@ public class DaftarKelas implements Serializable {
         }
     }
 
-    public void addKelas(Kelas kelas) {
+    public void addSemester(Semester semester) {
         EntityManager em = getEntityManager();
         em.getTransaction().begin();
         try {
-            em.persist(kelas);
+            em.persist(semester);
             em.getTransaction().commit();
         } catch (Exception e) {
             em.getTransaction().rollback();
@@ -104,19 +104,19 @@ public class DaftarKelas implements Serializable {
         }
     }
 
-    public void deleteKelas(Long id) throws NonexistentEntityException {
+    public void deleteSemester(Long id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Kelas kelas;
+            Semester semester;
             try {
-                kelas = em.getReference(Kelas.class, id);
-                kelas.getId();
+                semester = em.getReference(Semester.class, id);
+                semester.getId();
             } catch (EntityNotFoundException enfe) {
-                throw new NonexistentEntityException("The Kelas with id " + id + " no longer exists.", enfe);
+                throw new NonexistentEntityException("The Semester with id " + id + " no longer exists.", enfe);
             }
-            em.remove(kelas);
+            em.remove(semester);
             em.getTransaction().commit();
         } finally {
             if (em != null) {

@@ -26,6 +26,7 @@ p {
 }
 </style>
 </head>
+</head>
 
 <body>
 <div class="container">
@@ -46,7 +47,7 @@ p {
   <div class="content">
     <table width="100%" border="0">
       <tr>
-        <td width="15%" height="241"><img src="../images/bg4a.JPG" width="180" height="600" /></td>
+        <td width="15%" height="241"><img src="images/bg4a.JPG" width="180" height="600" /></td>
         <td width="85%" valign="top"><table width="100%" border="0">
           <tr>
             <td width="19%" align="center">Halaman Muka</td>

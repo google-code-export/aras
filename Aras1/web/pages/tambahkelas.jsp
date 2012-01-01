@@ -1,10 +1,15 @@
+<%-- 
+    Document   : tambahkelas
+    Created on : Des 30, 2011, 13:44:02 PM
+    Author     : Heti Liyana
+--%>
+
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Tambah Kelas</title>
-<link href="style/coba-indeks.css" rel="stylesheet" type="text/css" />
 <style type="text/css">
 body,td,th {
 	color: #000;
@@ -32,21 +37,15 @@ p {
   <div class="header"><!-- end .header -->
     <table width="100%" border="0">
       <tr>
-        <td bgcolor="#FFFFFF"><img src="../images/arasz.JPG" width="936" height="142" /></td>
+        <td bgcolor="#FFFFFF"><img src="images/arasz.JPG" width="936" height="142" />&nbsp;</td>
       </tr>
     </table>
   </div>
-  <div class="sidebar1">
-    <table width="162" border="1">
-      <tr>
-        
-      </tr>
-    </table>
-  <!-- end .sidebar1 --></div>
+
   <div class="content">
     <table width="100%" border="0">
       <tr>
-        <td width="15%" height="241"><img src="../images/bg4a.JPG" width="180" height="600" /></td>
+        <td width="15%" height="241"><img src="images/bg4a.JPG" width="180" height="600" /></td>
         <td width="85%" valign="top"><table width="100%" border="0">
           <tr>
             <td width="19%" align="center">Halaman Muka</td>
@@ -62,16 +61,14 @@ p {
 <!-- DARI SINI JANGAN LUPA YG LINE 6 JUGA DIGANTI --> 
 
           <h1>Menambah Kelas</h1>
-        
+        <form action="tambah_kelas" method="POST">
           <table border="0">
       <tr>
-        <td><div align="left">
-          <p>Nama Kelas :</p>
-        </div></td>
+        <td><div align="left"><p>Nama Kelas :</p></div></td>
         <td><input type="text" name="namakelas" value="" /></td>
     </tr>
     <tr>
-        <td><div align="left"><span class="nama">Nama Guru Wali </span>:</div></td>
+        <td><div align="left"><p>Nama Guru Wali :</p></div></td>
         <td><input type="text" name="namaguru" value="" /></td>
     </tr>    
     <tr>
@@ -80,20 +77,21 @@ p {
               <input type="reset" value=" batal " /></td>
     </tr> 
 </table>
+</form>
+
         <!-- SAMPAI SINI  -->
           <p>&nbsp;</p>
-<p>&nbsp;</p></td>
-      </tr>
+        <td><p>&nbsp;</p></td>
+    
     </table>
-    <p align="center"><!-- end .content -->Copyright &copy; 2011</p>
-    <p align="center">&nbsp;</p>
-  </div>
-  <div class="footer">
-    <div align="center">
+  
+    <p align="center"><!-- end .content -->Copyright &copy; 2011  </p>
+    <div class="footer">
+      <div align="center">
       <pre>Margo Utomo - M. Komara Novianto - Heti Liyana E.</pre>
       <pre>Jurusan Sistem Informasi, Institut Teknologi Sepuluh Nopember - Surabaya  </pre>
     </div>
-  </div>
+</div>
 <!-- end .container --></div>
-</body>
+  </body>
 </html>

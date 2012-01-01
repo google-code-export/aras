@@ -4,11 +4,16 @@
  */
 package servlets;
 
+import entity.DaftarSemester;
+import entity.Semester;
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,8 +22,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Heti Liyana
  */
-@WebServlet(name = "Kelas", urlPatterns = {"/kelas"})
-public class KelasServlets extends HttpServlet {
+public class TambahSemesterServlet extends HttpServlet {
 
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -28,22 +32,32 @@ public class KelasServlets extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, ParseException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
+        
+        String dateString = request.getParameter("tanggalawal");
+        String tanggalString = request.getParameter("tanggalkhir");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy");
+        Date awal = dateFormat.parse(dateString);
+        Date akhir = dateFormat.parse(tanggalString);
+        String sem = request.getParameter("namasemester");
+        String tahun = request.getParameter("tahunajaran");
+        DaftarSemester daftar = new DaftarSemester ();
+        Semester semester = new Semester ();
+        
+        semester.setNamasemester(sem);
+        semester.setTahunajaran(tahun);
+        semester.setTanggalawal(awal);
+        semester.setTanggalakhir(akhir);
+        
+        daftar.addSemester(semester);
+        response.sendRedirect("semester");
+        
+        
+        
         try {
-            RequestDispatcher rdp = request.getRequestDispatcher("pages/tambahkelas.jsp");
-            rdp.forward(request, response);
-            /* TODO output your page here
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet KelasServlets</title>");  
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet KelasServlets at " + request.getContextPath () + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-             */
+           
         } finally {            
             out.close();
         }
@@ -60,7 +74,11 @@ public class KelasServlets extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (ParseException ex) {
+            Logger.getLogger(TambahSemesterServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /** 
@@ -73,7 +91,11 @@ public class KelasServlets extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (ParseException ex) {
+            Logger.getLogger(TambahSemesterServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /** 
