@@ -4,10 +4,9 @@
  */
 package servlets;
 
-import entity.Absensi;
-import entity.DaftarAbsensi;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author aan
  */
-public class TambahAbsensiServlet extends HttpServlet {
+public class CetakAbsensiServlet extends HttpServlet {
 
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -30,29 +29,20 @@ public class TambahAbsensiServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        
-        String nama = (String) request.getAttribute("nama");
-        String keterangan = (String) request.getAttribute("keterangan");
-        DaftarAbsensi daftar = new DaftarAbsensi ();
-        Absensi absensi = new Absensi ();
-        
-        absensi.setKeterangan(keterangan);
-        
-        daftar.addAbsensi(absensi);
-        response.sendRedirect("pages/absensi.jsp");
-        
-        
         try {
             /* TODO output your page here
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet TambahAbsensiServlet</title>");  
+            out.println("<title>Servlet CetakAbsensiServlet</title>");  
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet TambahAbsensiServlet at " + request.getContextPath () + "</h1>");
+            out.println("<h1>Servlet CetakAbsensiServlet at " + request.getContextPath () + "</h1>");
             out.println("</body>");
             out.println("</html>");
              */
+            String jsp = "pages/cetakabsensi.jsp";
+            RequestDispatcher rdp = request.getRequestDispatcher(jsp);
+            rdp.forward(request, response);
         } finally {            
             out.close();
         }

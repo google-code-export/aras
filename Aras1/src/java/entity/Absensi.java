@@ -23,19 +23,18 @@ public class Absensi implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String namasiswa;
-    private String keterangan;
-    @Temporal(javax.persistence.TemporalType.DATE)
-    private Date tglAbsensi;
-       
-       
     @ManyToOne
     private Siswa siswa;
+    private String keterangan;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date tglAbsensi;  
     @ManyToOne
     private Kelas kelas;
-    //@ManyToOne
-    //private Semester semester;
 
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+    
     public Kelas getKelas() {
         return kelas;
     }
@@ -52,20 +51,20 @@ public class Absensi implements Serializable {
         this.keterangan = keterangan;
     }
 
-    public String getNamasiswa() {
-        return namasiswa;
-    }
-
-    public void setNamasiswa(String namasiswa) {
-        this.namasiswa = namasiswa;
-    }
-
     public Date getTglAbsensi() {
         return tglAbsensi;
     }
 
     public void setTglAbsensi(Date tglAbsensi) {
         this.tglAbsensi = tglAbsensi;
+    }
+
+    public Siswa getSiswa() {
+        return siswa;
+    }
+
+    public void setSiswa(Siswa siswa) {
+        this.siswa = siswa;
     }
     
     public Long getId() {
