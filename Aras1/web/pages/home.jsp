@@ -1,10 +1,20 @@
+<%-- 
+    Document   : tambahsemester
+    Created on : Jan 1, 2012, 3:55:20 PM
+    Author     : Heti Liyana
+--%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.text.DateFormat"%>
+
+<% DateFormat df = new SimpleDateFormat("dd/MM/yyyy");%>
+
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Halaman Muka</title>
-<link href="style/coba-indeks.css" rel="stylesheet" type="text/css" />
+
 <style type="text/css">
 body,td,th {
 	color: #000;
@@ -13,56 +23,97 @@ body,td,th {
 body {
 	background-color: #B9DDF3;
 }
+p {
+	font-family: Arial;
+	font-size: 14px;
+}
+.container .content table tr td h2 form table tr td div {
+	font-size: 16px;
+}
+.nama {
+	font-family: Arial;
+	font-size: 14px;
+}
 </style>
 </head>
 
 <body>
 <div class="container">
-  <div class="header"><!-- end .header --><img src="../images/arasz1.JPG" width="940" height="145" /></div>
-  <div class="sidebar1">
-    <table width="162" border="1">
+
+ <tr>
+    <table>
+  <div class="header"><!-- end .header -->
+    <table width="100%" border="0">
       <tr>
-        
+        <td bgcolor="#FFFFFF"><img src="images/arasz.JPG" width="936" height="142" />&nbsp;</td>
       </tr>
     </table>
-  <!-- end .sidebar1 --></div>
-  <div class="content">
-    <table width="100%" height="232" border="0">
-    <tr></tr>
-    <tr></tr>
-    <tr>
-      <td width="22%" height="228"><table width="100%" border="2" align="center">
-        <tr>
-          <td valign="top">Halaman Muka</td>
-        </tr>
-        <tr>
-          <td valign="top">Pengguna</td>
-        </tr>
-        <tr>
-          <td valign="top">Siswa</td>
-        </tr>
-        <tr>
-          <td valign="top">Kelas</td>
-        </tr>
-        <tr>
-          <td valign="top">Semester</td>
-        </tr>
-        <tr>
-          <td height="23" align="left" valign="top">Absensi</td>
-        </tr>
-      </table></td>
-      <td width="78%">&nbsp;</td>
-    </tr>
-    </table>
-    <p>&nbsp;</p>
-    <h1>&nbsp;</h1>
-<p>dsgsbhfg jry jy jyt</p>
-  <!-- end .content --></div>
-  <div class="footer">
-    <p>Copyright 2011</p>
-    <p>Margo Utomo - M. Komara Novianto - Heti Liyana E.</p>
-    <p>Jurusan Sistem Informasi, Institut Teknologi Sepuluh Nopember - Surabaya  </p>
   </div>
+  
+  <div class="content">
+    <table width="100%" border="0">
+      <tr>
+        <td width="15%" height="241"><img src="images/bg4a.JPG" width="180" height="600" /></td>
+        <td width="85%" valign="top"><table width="100%" border="0">
+          <tr>
+            <td width="17%" align="center">&nbsp;</td>
+            <td width="14%" align="center">&nbsp;</td>
+            <td width="10%" align="center">&nbsp;</td>
+            <td width="10%" align="center">&nbsp;</td>
+            <td width="13%" align="center">&nbsp;</td>
+            <td width="12%" align="center">&nbsp;</td>
+            <td width="12%" align="center">&nbsp;</td>
+            <td width="12%" align="center"><a href="/Logout">Log Out</a></td>
+          </tr>
+        </table>
+<!-- DARI SINI JANGAN LUPA YG LINE 6 JUGA DIGANTI --> 
+
+          <h1>Selamat Datang di Halaman Utama ARAS!</h1>
+        
+          <table width="646" border="0">
+      <tr>
+        <td colspan="2"><p>Daftar Menu Aplikasi Rekapitulasi Absensi Siswa :</p></td>
+        </tr>
+      <tr>
+        <td width="164"><p><a href="/pengguna">Pengguna</a></p></td>
+        <td width="472"><p>Berisi Tambah, Ubah, Hapus Pengguna (Khusus Administrator)</p></td>
+    </tr>
+    <tr>
+        <td width="164"><p><a href="/siswa">Siswa</a></p></td>
+        <td>Berisi Tambah, Ubah, Hapus Siswa</td>
+    </tr> 
+    <tr>
+        <td width="164"><p><a href="/kelas">Kelas</a></p></td>
+        <td>Berisi Tambah, Ubah, Hapus Kelas</td>
+    </tr>
+    <tr>
+        <td width="164"><p><a href="/semester">Semester</a></p></td>
+        <td>Berisi Tambah, Ubah, Hapus Semester</td>
+    </tr>
+    <tr>
+        <td width="164"><p><a href="/absensi">Absensi</a></p></td>
+        <td>Berisi halaman absensi siswa</td>
+    </tr>
+    <tr>
+        <td width="164"><p><a href="/laporan">Laporan</a></p></td>
+        <td>Berisi halaman laporan rekapitulasi absensi siswa</td>
+    </tr>
+    
+</table>
+
+          <!-- SAMPAI SINI  -->
+          
+          <p>&nbsp;</p>
+<p>&nbsp;</p></td>
+     </tr>
+    </table>
+    <p align="center"><!-- end .content -->Copyright &copy; 2011    </p>
+    <div class="footer">
+      <div align="center">
+      <pre>Margo Utomo - M. Komara Novianto - Heti Liyana E.</pre>
+      <pre>Jurusan Sistem Informasi, Institut Teknologi Sepuluh Nopember - Surabaya  </pre>
+    </div>
+</div>
 <!-- end .container --></div>
-</body>
-</html>
+    </body>
+    </html>
