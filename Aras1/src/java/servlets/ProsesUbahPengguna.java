@@ -36,7 +36,7 @@ public class ProsesUbahPengguna extends HttpServlet {
         Long id = Long.parseLong(request.getParameter("id") );
         
         DaftarPengguna penggunax = new DaftarPengguna();
-        Pengguna pengguna = new Pengguna();
+        Pengguna pengguna = penggunax.findPengguna(id);
         
         HttpSession sessionedit=request.getSession();
         sessionedit.setAttribute("pengguna", pengguna);
