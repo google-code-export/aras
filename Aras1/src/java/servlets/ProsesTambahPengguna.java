@@ -42,14 +42,14 @@ public class ProsesTambahPengguna extends HttpServlet {
         DaftarPengguna penggunax = new DaftarPengguna();
         Pengguna pengguna = new Pengguna();
         
-        if (namapengguna.equals("") && katasandi.equals("") && nama.equals("") && nip.equals("") && telp.equals("") && peran.equals("")) {
+        if (namapengguna == "" && katasandi == "" && nama == "" && nip == "" && telp == "" && peran == "") {
             request.setAttribute("Peringatan","Semua kolom harus di isi");
-            RequestDispatcher rdp = request.getRequestDispatcher("pengguna");
+            RequestDispatcher rdp = request.getRequestDispatcher("pages/pengguna1.jsp");
             rdp.forward(request, response);
             
         }else if(!nip.matches("[0-9]*")){
             request.setAttribute("Peringatan", "NIP hanya boleh di isi dengan angka saja");
-            RequestDispatcher rdp = request.getRequestDispatcher("pengguna");
+            RequestDispatcher rdp = request.getRequestDispatcher("pages/pengguna1.jsp");
             rdp.forward(request, response);
             
         }else{
@@ -61,10 +61,14 @@ public class ProsesTambahPengguna extends HttpServlet {
             pengguna.setPeran(peran);
             
             penggunax.addPengguna(pengguna);
+            RequestDispatcher rdp = request.getRequestDispatcher("pages/pengguna1.jsp");
+            rdp.forward(request, response);
         }
         
         try {
-             response.sendRedirect("pengguna");
+          //   response.sendRedirect("pengguna");
+          //  RequestDispatcher rdp = request.getRequestDispatcher("pengguna");
+           // rdp.forward(request, response);
             /* TODO output your page here
             out.println("<html>");
             out.println("<head>");

@@ -5,12 +5,8 @@
         <servlet-class>servlets.Login</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ProsesTambahPengguna</servlet-name>
-        <servlet-class>servlets.ProsesTambahPengguna</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>PenggunaServlet</servlet-name>
-        <servlet-class>servlets.PenggunaServlet</servlet-class>
+        <servlet-name>Pengguna1</servlet-name>
+        <servlet-class>servlets.Pengguna1</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>SimpanPenggunaServlet</servlet-name>
@@ -48,12 +44,16 @@
         <servlet-name>SiswaServlet</servlet-name>
         <servlet-class>servlets.SiswaServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ProsesTambahPengguna</servlet-name>
+        <servlet-class>servlets.ProsesTambahPengguna</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>PenggunaServlet</servlet-name>
+        <servlet-name>Pengguna1</servlet-name>
         <url-pattern>/pengguna</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
@@ -91,6 +91,10 @@
     <servlet-mapping>
         <servlet-name>TambahKelasServlet</servlet-name>
         <url-pattern>/tambah_kelas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProsesTambahPengguna</servlet-name>
+        <url-pattern>/prosestambahpengguna</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

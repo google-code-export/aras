@@ -37,10 +37,15 @@ public class Login extends HttpServlet {
         String katasandi = request.getParameter("katasandi");
         
         DaftarPengguna penggunax = new DaftarPengguna();
-        Pengguna pengguna = new Pengguna();
-        pengguna = penggunax.getPengguna(namapengguna, katasandi);
-        //Pengguna pengguna = penggunax.getPengguna("Nama Pengguna", "Kata Sandi"); 
         
+        //Pengguna pengguna = penggunax.getPengguna("Nama Pengguna", "Kata Sandi"); 
+        //Pengguna admin = penggunax.check("admin", "123456");
+        if (penggunax.check("admin","123456") == false ) {
+            penggunax.addAdmin();
+        }
+        
+        Pengguna pengguna = penggunax.getPengguna(namapengguna, katasandi);
+               
         if (namapengguna == "" || katasandi == "") {
             request.setAttribute("Peringatan","Nama pengguna dan kata sandi harus di isi");
             //response.sendRedirect("halamanlogin.jsp");
@@ -53,19 +58,22 @@ public class Login extends HttpServlet {
             rdp.forward(request, response);
         } else {
             HttpSession session = request.getSession(true);
-            if(pengguna.getPeran().equals("admin")){
+            if(pengguna.getPeran()=="admin"){
                 session.setAttribute("namapengguna", namapengguna);
                 session.setAttribute("peran", pengguna.getPeran() );
-                response.sendRedirect("index");
-            } else if(pengguna.getPeran().equals("guru") ){
+                //response.sendRedirect("/pages/home.jsp");
+            } else if(pengguna.getPeran()=="guru"){
                 session.setAttribute("namapengguna", namapengguna);
                 session.setAttribute("peran", pengguna.getPeran());
-                request.getRequestDispatcher("index").forward(request, response);
-            } else if (pengguna.getPeran().equals("TU")){
+                //request.getRequestDispatcher("/pages/home.jsp").forward(request, response);
+            } else if (pengguna.getPeran() == "TU"){
                 session.setAttribute("namapengguna", namapengguna);
                 session.setAttribute("peran", pengguna.getPeran());
-                request.getRequestDispatcher("index").forward(request, response);
+                //request.getRequestDispatcher("/pages/home.jsp").forward(request, response);
             }
+            
+            RequestDispatcher rdp = request.getRequestDispatcher("pages/home.jsp");
+            rdp.forward(request, response);
             //session.setAttribute("nama", namapengguna);
           //  session.setAttribute("pengguna", pengguna);
             

@@ -5,6 +5,7 @@
 package entity;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -23,6 +24,38 @@ public class DaftarPengguna {
         emf = Persistence.createEntityManagerFactory("ArasPU");
     }
     private EntityManagerFactory emf = null;
+    
+    
+    
+    public void addAdmin(){
+        DaftarPengguna dp = new DaftarPengguna();
+        Pengguna pengguna = new Pengguna();
+        pengguna.setNamapengguna("admin");
+        pengguna.setKatasandi("123456");
+        pengguna.setNama("admin");
+        pengguna.setNip("1000000");
+        pengguna.setTelp("1234567");
+        pengguna.setPeran("admin");
+        
+        List<Pengguna> list = dp.getPengguna();
+        Iterator<Pengguna> it = list.iterator();
+        Pengguna p = new Pengguna();
+       boolean result = false;
+        if (!list.isEmpty()) {
+            while (it.hasNext()) {
+                p = it.next();
+                if (p.getNamapengguna().equalsIgnoreCase(pengguna.getNamapengguna())) {
+                    result = true;
+                }
+            }
+            if (result = false) {
+                dp.addPengguna(pengguna);
+            }
+        } else {
+            dp.addPengguna(pengguna);
+        }
+        pengguna = null;      
+    }
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
@@ -131,4 +164,5 @@ public class DaftarPengguna {
         }
         return result;
     }
+    
 }
