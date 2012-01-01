@@ -18,6 +18,7 @@
                 <p>&nbsp;</p>
                 <p><strong>Selamat Datang di ARAS</strong></p>
     <table border=0>
+        ${Peringatan}
     <tr>
         <td><div align="right">Nama Pengguna :</div></td>
         <td><input class="input" type="text" name="namapengguna"></td>
