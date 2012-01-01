@@ -63,7 +63,7 @@ p {
             <td width="13%" align="center">&nbsp;</td>
             <td width="12%" align="center">&nbsp;</td>
             <td width="12%" align="center">&nbsp;</td>
-            <td width="12%" align="center"><a href="/Logout">Log Out</a></td>
+            <td width="12%" align="center"><a href="Logout">Log Out</a></td>
           </tr>
         </table>
 <!-- DARI SINI JANGAN LUPA YG LINE 6 JUGA DIGANTI --> 
@@ -75,7 +75,7 @@ p {
         <td colspan="2"><p>Daftar Menu Aplikasi Rekapitulasi Absensi Siswa :</p></td>
         </tr>
       <tr>
-        <td width="164"><p><a href="/pengguna">Pengguna</a></p></td>
+        <td width="164"><p><a href="pengguna">Pengguna</a></p></td>
         <td width="472"><p>Berisi Tambah, Ubah, Hapus Pengguna (Khusus Administrator)</p></td>
     </tr>
     <tr>
