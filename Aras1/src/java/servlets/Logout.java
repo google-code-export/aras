@@ -31,7 +31,12 @@ public class Logout extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-                /*try {
+        
+        HttpSession session = request.getSession();
+        session.invalidate();
+        response.sendRedirect("Login");
+        
+      try {
             /* TODO output your page here
             out.println("<html>");
             out.println("<head>");
@@ -42,15 +47,15 @@ public class Logout extends HttpServlet {
             out.println("</body>");
             out.println("</html>");
              */
-        //} finally {            
-        //    out.close();
-        //}
-        HttpSession session = request.getSession();
+        } finally {            
+            out.close();
+        }
+        /*HttpSession session = request.getSession();
         if(session.getAttribute("namapengguna")!=null){
         session.invalidate();
-        request.getRequestDispatcher("halamanlogin.jsp").forward(request, response);
+        request.getRequestDispatcher("halamanlogin.jsp").forward(request, response);*/
         }
-    }
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /** 
