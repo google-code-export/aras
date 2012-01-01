@@ -42,7 +42,7 @@ public class DaftarSiswa {
         return siswax;
     }
     
-    public Siswa findSiswa(Integer id) {
+    public Siswa findSiswa(Long id) {
         EntityManager em = getEntityManager();
         try {
             return em.find(Siswa.class, id);
@@ -76,7 +76,7 @@ public class DaftarSiswa {
         }
     }
     
-    public void deleteSiswa(Integer id) throws NonexistentEntityException {
+    public void deleteSiswa(Long id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
             em = getEntityManager();
