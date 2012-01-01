@@ -36,19 +36,36 @@ public class ProsesTambahPengguna extends HttpServlet {
         String katasandi = request.getParameter("katasandi");
         String nama = request.getParameter("nama");
         String nip = request.getParameter("nip");
+        String alamat = request.getParameter("alamat");
         String telp = request.getParameter("telp");
         String peran = request.getParameter("peran");
         
         DaftarPengguna penggunax = new DaftarPengguna();
         Pengguna pengguna = new Pengguna();
-        
-        if (namapengguna == "" && katasandi == "" && nama == "" && nip == "" && telp == "" && peran == "") {
+             
+        if (namapengguna.isEmpty() || katasandi.isEmpty() || nama.isEmpty() || nip.isEmpty() || telp.isEmpty() || peran.isEmpty() || alamat.isEmpty()) {
             request.setAttribute("Peringatan","Semua kolom harus di isi");
             RequestDispatcher rdp = request.getRequestDispatcher("pages/pengguna1.jsp");
             rdp.forward(request, response);
+        
+        }else if (penggunax.check(namapengguna,katasandi) == true ) {
+            request.setAttribute("Peringatan", "Nama Pengguna sudah digunakan");
+            RequestDispatcher rdp = request.getRequestDispatcher("pages/pengguna1.jsp");
+            rdp.forward(request, response);
             
+        }else if (katasandi.length() < 6){
+            request.setAttribute("Peringatan", "Kata Sandi minimal 6 digit");
+            RequestDispatcher rdp = request.getRequestDispatcher("pages/pengguna1.jsp");
+            rdp.forward(request, response);
+        
+              
         }else if(!nip.matches("[0-9]*")){
             request.setAttribute("Peringatan", "NIP hanya boleh di isi dengan angka saja");
+            RequestDispatcher rdp = request.getRequestDispatcher("pages/pengguna1.jsp");
+            rdp.forward(request, response);
+            
+            }else if(!telp.matches("[0-9]*")){
+            request.setAttribute("Peringatan", "Nomor Telepon hanya boleh di isi dengan angka saja");
             RequestDispatcher rdp = request.getRequestDispatcher("pages/pengguna1.jsp");
             rdp.forward(request, response);
             
@@ -57,6 +74,7 @@ public class ProsesTambahPengguna extends HttpServlet {
             pengguna.setNamapengguna(namapengguna);
             pengguna.setNama(nama);
             pengguna.setNip(nip);
+            pengguna.setAlamat(alamat);
             pengguna.setTelp(telp);
             pengguna.setPeran(peran);
             
