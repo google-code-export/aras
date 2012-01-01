@@ -18,32 +18,37 @@
     <table border=0>
     <tr>
         <td>Nama Pengguna :</td>
-        <td><input class="input" type="text" name="namapengguna" value="<%= pengguna.getNamapengguna().substring(0)%>"></td>
+        <td><input class="input" type="text" name="namapengguna" value="<%= pengguna.getNamapengguna()%>"></td>
     </tr>
     <tr>
         <td>Kata Sandi :</td>
-        <td><input class="input" type="password" name="katasandi" value="<%= pengguna.getKatasandi().substring(0)%>"></td>
+        <td><input class="input" type="password" name="katasandi" value="<%= pengguna.getKatasandi()%>"></td>
     </tr>    
         <tr>
         <td> Nama :</td>
-        <td><input class="input" type="text" name="nama" value="<%= pengguna.getNama().substring(0)%>"></td>
+        <td><input class="input" type="text" name="nama" value="<%= pengguna.getNama()%>"></td>
     </tr>
         <tr>
         <td> NIP :</td>
-        <td><input class="input" type="text" name="nip" value="<%= pengguna.getNip().substring(0)%>"></td>
+        <td><input class="input" type="text" name="nip" value="<%= pengguna.getNip()%>"></td>
+    </tr>
+    <tr>
+        <td> Alamat :</td>
+        <td><input class="input" type="text" name="alamat" value="<%= pengguna.getAlamat()%>"></td>
     </tr>
         <tr>
         <td> Nomor Telepon :</td>
-        <td><input class="input" type="text" name="telp" value="<%= pengguna.getTelp().substring(0)%>"></td>
+        <td><input class="input" type="text" name="telp" value="<%= pengguna.getTelp()%>"></td>
     </tr>
     <tr> 
         <td> Peran : </td>
-        <td><input class="input" type="text" name="peran" value="<%= pengguna.getPeran().substring(0)%>"></td>
+        <td><input class="input" type="text" name="peran" value="<%= pengguna.getPeran()%>"></td>
     </tr>
     
     <tr>
         <td></td>
-        <td><input type="submit" value="Simpan" ></td>
+        <td><input type="submit" value="Simpan" onclick ="this.form.action='SimpanUbahPengguna';this.form.submit"></td>
+        <td><input type="button" value="Hapus" onclick="this.form.action='HapusPengguna';this.form.submit();"></td>
     </tr>
     </table>
     </form>
