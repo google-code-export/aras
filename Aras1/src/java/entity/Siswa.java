@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -19,20 +20,24 @@ public class Siswa implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private Long id;
     private String nis;
     private String namasiswa;
-    private String kelas;
-    private String semester;
+    //private String kelas; //ambil dari tabel lain
+    //private String semester; //ambil dari tabel lain
     private String namaortu;
     private String alamat;
     private String nmrtlp;
-
-    public Integer getId() {
+    @ManyToOne
+    private Kelas kelas;
+    @ManyToOne
+    private Semester semester;
+    
+        public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
     
@@ -52,19 +57,19 @@ public class Siswa implements Serializable {
         this.namasiswa = namasiswa;
     }
     
-    public String getKelas() {
+    public Kelas getKelas() {
         return kelas;
     }
     
-    public void setKelas (String kelas) {
+    public void setKelas (Kelas kelas) {
         this.kelas = kelas;
     }
     
-    public String getSemester() {
+    public Semester getSemester() {
         return semester;
     }
     
-    public void setSemester (String semester) {
+    public void setSemester (Semester semester) {
         this.semester = semester;
     }
     
