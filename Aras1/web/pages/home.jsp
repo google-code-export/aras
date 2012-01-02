@@ -79,7 +79,7 @@ p {
         <td width="472"><p>Berisi Tambah, Ubah, Hapus Pengguna (Khusus Administrator)</p></td>
     </tr>
     <tr>
-        <td width="164"><p><a href="/siswa">Siswa</a></p></td>
+        <td width="164"><p><a href="SiswaServlet">Siswa</a></p></td>
         <td>Berisi Tambah, Ubah, Hapus Siswa</td>
     </tr> 
     <tr>
@@ -115,5 +115,8 @@ p {
     </div>
 </div>
 <!-- end .container --></div>
-    </body>
+    </table>
+ </tr>
+</div>
+</body>
     </html>
