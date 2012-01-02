@@ -104,9 +104,13 @@ p {
                 </tr>
                 <tr>
                     <td><div align="right">Peran :</div></td>
-                    <td><input class="input" type="radio" name="peran" value="admin">Admin</td>
-                    <td><input class="input" type="radio" name="peran" value="guru">Guru</td>
-                    <td><input class="input" type="radio" name="peran" value="tu">TU</td>
+                    <td>
+                        <select name="peran">
+                                        <option value="admin">Administrator</option>
+                                        <option value="guru">Guru</option>
+                                        <option value="tu">TU</option>
+                                    </select>
+                    </td>
                 </tr>
                 <td></td>
                 <td><input type="submit" value="Tambah"></input></td>

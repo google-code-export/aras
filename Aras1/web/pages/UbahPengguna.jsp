@@ -93,8 +93,22 @@ p {
         <td><input class="input" type="text" name="telp" value="<%= pengguna.getTelp()%>"></td>
     </tr>
     <tr> 
-        <td> Peran </td>
-        <td><input class="input" type="text" name="peran" value="<%= pengguna.getPeran()%>"></td>
+        <td> Peran </td>   
+        <td>
+            <select name="peran">
+                <option value="admin" <% if (pengguna.getPeran() == "admin")
+                {out.println(" selected=\"selected\"");
+                }%>> Admin</option>
+                
+                <option value="guru" <% if (pengguna.getPeran() == "guru")
+                {out.println(" selected=\"selected\"");
+                }%>>Guru</option>
+                
+                <option value="tu" <% if (pengguna.getPeran() == "tu")
+                {out.println(" selected=\"selected\"");
+                }%>>TU</option>
+            </select>
+        </td>
     </tr>
     
     <tr>
