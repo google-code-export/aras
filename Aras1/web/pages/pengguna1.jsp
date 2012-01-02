@@ -3,25 +3,79 @@
     Created on : Dec 18, 2011, 5:31:17 PM
     Author     : margoutomo
 --%>
-
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.text.DateFormat"%>
 <%@page import="entity.DaftarPengguna"%>
 <%@page import="entity.Pengguna"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+
+<% DateFormat df = new SimpleDateFormat("dd/MM/yyyy");%>
 <% DaftarPengguna daftar = new DaftarPengguna();%>
 <% List<Pengguna> pengguna = daftar.getPengguna();%>
 <% Iterator<Pengguna> iterator = pengguna.iterator();%>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Pengguna</title>
-    </head>
-    <body>
-    <center>
-        <form method="post" action="prosestambahpengguna">
-            <p><strong>Pengguna</strong></p>
+
+<%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Pengguna</title>
+
+<style type="text/css">
+body,td,th {
+	color: #000;
+	font-weight: bold;
+}
+body {
+	background-color: #B9DDF3;
+}
+p {
+	font-family: Arial;
+	font-size: 14px;
+}
+.container .content table tr td h2 form table tr td div {
+	font-size: 16px;
+}
+.nama {
+	font-family: Arial;
+	font-size: 14px;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+ <tr>
+    <table>
+  <div class="header"><!-- end .header -->
+    <table width="100%" border="0">
+      <tr>
+        <td bgcolor="#FFFFFF"><img src="images/arasz.JPG" width="936" height="142" />&nbsp;</td>
+      </tr>
+    </table>
+  </div>
+  
+  <div class="content">
+    <table width="100%" border="0">
+      <tr>
+        <td width="15%" height="241"><img src="images/bg4a.JPG" width="180" height="600" /></td>
+        <td width="85%" valign="top"><table width="100%" border="0">
+          <tr>
+            <td width="12%" align="center"><a href="Home">Home</a></td>
+            <td width="14%" align="center">&nbsp;</td>
+            <td width="10%" align="center">&nbsp;</td>
+            <td width="10%" align="center">&nbsp;</td>
+            <td width="13%" align="center">&nbsp;</td>
+            <td width="12%" align="center">&nbsp;</td>
+            <td width="12%" align="center">&nbsp;</td>
+            <td width="12%" align="center"><a href="Logout">Log Out</a></td>
+          </tr>
+        </table>
+<!-- DARI SINI JANGAN LUPA YG LINE 6 JUGA DIGANTI --> 
+
+    <form method="post" action="prosestambahpengguna">
             <table border=0>
                 ${Peringatan}
                 <tr>
@@ -54,12 +108,14 @@
                     <td><input class="input" type="radio" name="peran" value="guru">Guru</td>
                     <td><input class="input" type="radio" name="peran" value="tu">TU</td>
                 </tr>
+                <td></td>
                 <td><input type="submit" value="Tambah"></input></td>
                 </tr>
             </table>
         </form>
         
         <table border=0>
+            &nbsp;
          <tr>
                     <td width="10%" align="center">&nbsp;</td>
                     <th width="24%" align="center">Nama Pengguna</th>
@@ -84,8 +140,19 @@
                     <td>&nbsp;</td>
                 </tr>
             </table></td>
-    
-</table>
-    </center>
-</body>
-</html>
+          <!-- SAMPAI SINI  -->
+          
+          <p>&nbsp;</p>
+<p>&nbsp;</p></td>
+     </tr>
+    </table>
+    <p align="center"><!-- end .content -->Copyright &copy; 2011    </p>
+    <div class="footer">
+      <div align="center">
+      <pre>Margo Utomo - M. Komara Novianto - Heti Liyana E.</pre>
+      <pre>Jurusan Sistem Informasi, Institut Teknologi Sepuluh Nopember - Surabaya  </pre>
+    </div>
+</div>
+<!-- end .container --></div>
+    </body>
+    </html>
