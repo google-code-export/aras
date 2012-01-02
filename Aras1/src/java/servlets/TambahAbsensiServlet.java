@@ -6,8 +6,15 @@ package servlets;
 
 import entity.Absensi;
 import entity.DaftarAbsensi;
+import entity.DaftarKelas;
+import entity.Kelas;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -27,19 +34,27 @@ public class TambahAbsensiServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, ParseException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        
+        String dateString = request.getParameter("tgl");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yy");
+        Date tglTran = dateFormat.parse(dateString);
         String nama = (String) request.getAttribute("nama");
+        String namakelas = (String) request.getAttribute("namakelas");
         String keterangan = (String) request.getAttribute("keterangan");
+        
         DaftarAbsensi daftar = new DaftarAbsensi ();
         Absensi absensi = new Absensi ();
         
+        DaftarKelas dkelas = new DaftarKelas ();
+        Kelas kelas = new Kelas () ;
+        
+        kelas.setNamakelas(namakelas);
         absensi.setKeterangan(keterangan);
         
         daftar.addAbsensi(absensi);
-        response.sendRedirect("pages/absensi.jsp");
+        response.sendRedirect("absensi");
         
         
         try {
@@ -69,7 +84,11 @@ public class TambahAbsensiServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (ParseException ex) {
+            Logger.getLogger(TambahAbsensiServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /** 
@@ -82,7 +101,11 @@ public class TambahAbsensiServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (ParseException ex) {
+            Logger.getLogger(TambahAbsensiServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /** 

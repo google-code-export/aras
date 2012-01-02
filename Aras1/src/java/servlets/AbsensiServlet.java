@@ -34,7 +34,7 @@ public class AbsensiServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         
-        DaftarAbsensi daftar = new DaftarAbsensi ();
+        DaftarAbsensi daftar = new DaftarAbsensi();
         List <Absensi> absen = (List <Absensi>) daftar.getAbsensi();
         //List <Absensi> absen = (List <Absensi>) daftar.getAbsensi();
         

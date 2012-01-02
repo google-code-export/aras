@@ -23,6 +23,10 @@ public class Absensi implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private Long idKelas;
+    @ManyToOne
+    private Semester semester;
+    private double jmlAbsensi;
     @ManyToOne
     private Siswa siswa;
     private String keterangan;
@@ -51,6 +55,14 @@ public class Absensi implements Serializable {
         this.keterangan = keterangan;
     }
 
+    public double getJmlAbsensi() {
+        return jmlAbsensi;
+    }
+
+    public void setJmlAbsensi(double jmlAbsensi) {
+        this.jmlAbsensi = jmlAbsensi;
+    }
+
     public Date getTglAbsensi() {
         return tglAbsensi;
     }
@@ -61,6 +73,22 @@ public class Absensi implements Serializable {
 
     public Siswa getSiswa() {
         return siswa;
+    }
+
+    public Long getIdKelas() {
+        return idKelas;
+    }
+
+    public void setIdKelas(Long idKelas) {
+        this.idKelas = idKelas;
+    }
+
+    public Semester getSemester() {
+        return semester;
+    }
+
+    public void setSemester(Semester semester) {
+        this.semester = semester;
     }
 
     public void setSiswa(Siswa siswa) {
