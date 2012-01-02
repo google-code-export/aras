@@ -13,21 +13,12 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 import jpa.exceptions.NonexistentEntityException;
 
-
-//import java.io.Serializable;
-//import javax.persistence.Entity;
-//import javax.persistence.GeneratedValue;
-//import javax.persistence.GenerationType;
-//import javax.persistence.Id;
-
-
 /**
  *
  * @author aan
  */
-
 public class DaftarAbsensi {
-    private List<Absensi> absensi;
+     private List<Absensi> absensi;
     public DaftarAbsensi() {
         emf = Persistence.createEntityManagerFactory("ArasPU"); 
     }
@@ -43,7 +34,7 @@ public class DaftarAbsensi {
 
         EntityManager em = getEntityManager();
         try {
-            Query q = em.createQuery("SELECT a FROM Absensi AS a");
+            Query q = em.createQuery("SELECT a FROM Absensi AS a") ;
             absensix = q.getResultList ();
            
         } finally {
@@ -130,6 +121,3 @@ public class DaftarAbsensi {
         throw new UnsupportedOperationException("Not yet implemented");
     }
 }
-   
-        
-

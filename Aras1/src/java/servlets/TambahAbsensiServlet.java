@@ -37,9 +37,11 @@ public class TambahAbsensiServlet extends HttpServlet {
             throws ServletException, IOException, ParseException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
+        
         String dateString = request.getParameter("tgl");
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yy");
         Date tglTran = dateFormat.parse(dateString);
+        
         String nama = (String) request.getAttribute("nama");
         String namakelas = (String) request.getAttribute("namakelas");
         String keterangan = (String) request.getAttribute("keterangan");
@@ -54,10 +56,11 @@ public class TambahAbsensiServlet extends HttpServlet {
         absensi.setKeterangan(keterangan);
         
         daftar.addAbsensi(absensi);
-        response.sendRedirect("absensi");
+        
         
         
         try {
+            response.sendRedirect("absensi");
             /* TODO output your page here
             out.println("<html>");
             out.println("<head>");
