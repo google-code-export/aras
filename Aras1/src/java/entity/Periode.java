@@ -20,6 +20,7 @@ public class Periode implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+  //  private Long idKelas;
     private String Harian;
     private String Bulanan;
     private String Semesteran;
@@ -32,6 +33,38 @@ public class Periode implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public String getBulanan() {
+        return Bulanan;
+    }
+
+    public void setBulanan(String Bulanan) {
+        this.Bulanan = Bulanan;
+    }
+
+    public String getHarian() {
+        return Harian;
+    }
+
+    public void setHarian(String Harian) {
+        this.Harian = Harian;
+    }
+
+    public String getSemesteran() {
+        return Semesteran;
+    }
+
+    public void setSemesteran(String Semesteran) {
+        this.Semesteran = Semesteran;
+    }
+
+    /*public Long getIdKelas() {
+        return idKelas;
+    }
+
+    public void setIdKelas(Long idKelas) {
+        this.idKelas = idKelas;
+    }*/
 
     @Override
     public int hashCode() {

@@ -29,7 +29,7 @@ public class DaftarAbsensi {
         return emf.createEntityManager();
     }
 
-    public List<Absensi> getAbsensi() {
+    public List<Absensi> getAbsensis() {
         List<Absensi> absensix = new ArrayList<Absensi>();
 
         EntityManager em = getEntityManager();

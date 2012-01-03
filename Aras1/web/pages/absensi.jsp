@@ -13,10 +13,10 @@
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
 
         <% DaftarAbsensi dafAb=new DaftarAbsensi();%>
-        <% List <Absensi> absen =dafAb.getAbsensi() ; %>
+        <% List <Absensi> absen =dafAb.getAbsensis() ; %>
         <% Iterator <Absensi> itabsen = absen.iterator (); %>
         <% DaftarSiswa dafsiswa=new DaftarSiswa();%>
-        <% List <Siswa> siswa = (List)request.getAttribute("siswa"); %>
+        <% List <Siswa> siswa = dafsiswa.getSiswas(); %>
         <% Iterator <Siswa> itsiswa = siswa.iterator (); %>
         
         <%Date tanggal = new Date();%>
@@ -83,14 +83,14 @@ p {
           </tr>
         </table>
 <!-- DARI SINI JANGAN LUPA YG LINE 6 JUGA DIGANTI --> 
-  <title>tambahabsensi</title>
+  <title>absensi</title>
         
         
     </head>
     
     <body>
         <h1>Tambah Absensi</h1>
-        <form method="post">
+        <form method="post" action="tambah_absensi">
         <table>
              <tr>
                  <td width="10%">&nbsp;</td>
@@ -101,7 +101,7 @@ p {
                  <td >NIS</td><td><select name="nis">
                   <% while (itsiswa.hasNext() ) {%>
                     <% Siswa nsiswa = itsiswa.next (); %>
-                     <option value="<%=nsiswa.getNis()%>"><%=nsiswa.getNis()+"-"+nsiswa.getNamasiswa()%></option> %>        
+                     <option value="<%=nsiswa.getId()%>"><%=nsiswa.getNis()+"-"+nsiswa.getNamasiswa()%></option> %>        
                     <%}%>
                      
                  <td width="10%">&nbsp;</td>
@@ -114,21 +114,10 @@ p {
               </tr> 
             
               
-            <% while (itabsen.hasNext() ) {%>
-                <% Absensi next = itabsen.next (); %>
-                <tr>
-                    <td>
-                <%=next.getSiswa().getNamasiswa()  %>
-                    </td>
-                    <td>
-                <%=next.getKeterangan() %>   
-                    </td>
-                </tr>
-                <% }%>
                 <tr> <td>
        <td> <input name="Simpan" value="Simpan" type="submit"></td>
        <td> <input name="Batal" value="Batal" type="reset"></td> 
-            </tr>
+                    </td></tr>
 
         <%--
             <input type="text" name="namapengguna" value="" /> <br>
@@ -137,7 +126,20 @@ p {
             <input type="reset" value="batal" />
             
             --%>
+            <% while (itabsen.hasNext() ) {%>
+                <% Absensi next = itabsen.next (); %>
+                <tr>
+                    <td>
+                
+                    </td>
+                    <td>
+                <%=next.getKeterangan() %>   
+                    </td>
+                </tr>
+                <% }%>
+            
             </table>
+            
         </form>
     </body>
 </html>

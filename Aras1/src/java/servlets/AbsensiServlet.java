@@ -34,10 +34,10 @@ public class AbsensiServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         
         DaftarAbsensi daftar = new DaftarAbsensi();
-        List <Absensi> absen = (List <Absensi>) daftar.getAbsensi();
+        List <Absensi> absen = (List <Absensi>) daftar.getAbsensis();
         //List <Absensi> absen = (List <Absensi>) daftar.getAbsensi();
         
-        request.setAttribute("siswa", absen);
+        request.setAttribute("absen", absen);
         
         
         try {

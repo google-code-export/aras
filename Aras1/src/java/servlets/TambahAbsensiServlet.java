@@ -7,7 +7,9 @@ package servlets;
 import entity.Absensi;
 import entity.DaftarAbsensi;
 import entity.DaftarKelas;
+import entity.DaftarSiswa;
 import entity.Kelas;
+import entity.Siswa;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;
@@ -42,22 +44,19 @@ public class TambahAbsensiServlet extends HttpServlet {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yy");
         Date tglTran = dateFormat.parse(dateString);
         
-        String nama = (String) request.getAttribute("nama");
-        String namakelas = (String) request.getAttribute("namakelas");
         String keterangan = (String) request.getAttribute("keterangan");
         
         DaftarAbsensi daftar = new DaftarAbsensi ();
         Absensi absensi = new Absensi ();
         
-        DaftarKelas dkelas = new DaftarKelas ();
-        Kelas kelas = new Kelas () ;
+        DaftarSiswa dsis = new DaftarSiswa ();
+        Siswa sis = dsis.findSiswa(Long.parseLong(request.getParameter("nis")));
         
-        kelas.setNamakelas(namakelas);
+        absensi.setTglAbsensi(tglTran);
+        absensi.setSiswa(sis);
         absensi.setKeterangan(keterangan);
         
         daftar.addAbsensi(absensi);
-        
-        
         
         try {
             response.sendRedirect("absensi");
