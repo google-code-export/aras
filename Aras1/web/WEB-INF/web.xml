@@ -80,6 +80,30 @@
         <servlet-name>Home</servlet-name>
         <servlet-class>servlets.Home</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>HalDaftarKelas</servlet-name>
+        <servlet-class>servlets.HalDaftarKelasServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Semester</servlet-name>
+        <servlet-class>servlets.SemesterServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TambahSemester</servlet-name>
+        <servlet-class>servlets.TambahSemesterServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>HomeGuruServlet</servlet-name>
+        <servlet-class>servlets.HomeGuruServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>HalTambahKelasServlet</servlet-name>
+        <servlet-class>servlets.HalTambahKelasServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>HalTambahSemesterServlet</servlet-name>
+        <servlet-class>servlets.HalTambahSemester</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -121,10 +145,6 @@
         <url-pattern>/SiswaServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>TambahKelasServlet</servlet-name>
-        <url-pattern>/tambah_kelas</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>ProsesTambahPengguna</servlet-name>
         <url-pattern>/prosestambahpengguna</url-pattern>
     </servlet-mapping>
@@ -159,6 +179,34 @@
     <servlet-mapping>
         <servlet-name>Home</servlet-name>
         <url-pattern>/Home</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HalDaftarKelas</servlet-name>
+        <url-pattern>/daftarkelas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Semester</servlet-name>
+        <url-pattern>/semester</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TambahSemester</servlet-name>
+        <url-pattern>/tambah_semester</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HomeGuruServlet</servlet-name>
+        <url-pattern>/homeguru</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TambahKelasServlet</servlet-name>
+        <url-pattern>/tambah_kelas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HalTambahKelasServlet</servlet-name>
+        <url-pattern>/tambahkelas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HalTambahSemesterServlet</servlet-name>
+        <url-pattern>/tambahSsemester</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

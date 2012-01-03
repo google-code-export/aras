@@ -125,6 +125,15 @@ public class DaftarSemester implements Serializable {
         }
     }
 
+    public Semester findSemester(Long id) {
+        EntityManager em = getEntityManager();
+        try {
+            return em.find(Semester.class, id);
+        } finally {
+            em.close();
+        }
+    }
+    
     public EntityManagerFactory getEmf() {
         return emf;
     }

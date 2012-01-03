@@ -1,5 +1,5 @@
 <%-- 
-    Document   : tambahsemester
+    Document   : home
     Created on : Jan 1, 2012, 3:55:20 PM
     Author     : Heti Liyana
 --%>
@@ -75,7 +75,7 @@ p {
         <td colspan="2"><p>Daftar Menu Aplikasi Rekapitulasi Absensi Siswa :</p></td>
         </tr>
       <tr>
-        <td width="164"><p><a href="pengguna">Pengguna</a></p></td>
+        <td width="164"><p><a href="Pengguna">Pengguna</a></p></td>
         <td width="472"><p>Berisi Tambah, Ubah, Hapus Pengguna (Khusus Administrator)</p></td>
     </tr>
     <tr>
@@ -83,11 +83,11 @@ p {
         <td>Berisi Tambah, Ubah, Hapus Siswa</td>
     </tr> 
     <tr>
-        <td width="164"><p><a href="/kelas">Kelas</a></p></td>
+        <td width="164"><p><a href="Kelas">Kelas</a></p></td>
         <td>Berisi Tambah, Ubah, Hapus Kelas</td>
     </tr>
     <tr>
-        <td width="164"><p><a href="/semester">Semester</a></p></td>
+        <td width="164"><p><a href="Semester">Semester</a></p></td>
         <td>Berisi Tambah, Ubah, Hapus Semester</td>
     </tr>
     <tr>

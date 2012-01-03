@@ -6,6 +6,7 @@ package entity;
 
 
 import entity.Kelas;
+import java.util.Iterator;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -125,6 +126,15 @@ public class DaftarKelas implements Serializable {
         }
     }
 
+       public Kelas findKelas(Long id) {
+        EntityManager em = getEntityManager();
+        try {
+            return em.find(Kelas.class, id);
+        } finally {
+            em.close();
+        }
+    }
+    
     public EntityManagerFactory getEmf() {
         return emf;
     }

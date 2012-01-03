@@ -118,12 +118,7 @@ p {
         <td><p>&nbsp;</p></td>
         <td><p>&nbsp;</p></td>
     </tr>
-    <tr>
-        <td><div align="left"><p>Periode:</p></div></td>
-        <td><input type="text" name="tanggalakhir" value="" /></td>
-        <td><p>sampai dengan</p></td>
-        <td><input type="text" name="tanggalakhir" value="" /></td>
-    </tr>    
+    
     <tr>
         <td></td>
         <td><input type="submit" value="simpan" />
