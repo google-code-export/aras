@@ -4,7 +4,11 @@
  */
 package servlets;
 
+import entity.DaftarKelas;
+import entity.DaftarSemester;
 import entity.DaftarSiswa;
+import entity.Kelas;
+import entity.Semester;
 import entity.Siswa;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -34,24 +38,54 @@ public class TambahSiswa extends HttpServlet {
         
         String nis = request.getParameter("nis");
         String namasiswa = request.getParameter("namasiswa");
-        String kelas = request.getParameter("kelas");
-        String semester = request.getParameter("semester");
+        String idkelas = request.getParameter("kelas");
+        String idsemester = request.getParameter("semester");
         String namaortu = request.getParameter("namaortu");
         String alamat = request.getParameter("alamat");
         String nmrtlp = request.getParameter("nmrtlp");
         
         DaftarSiswa siswax = new DaftarSiswa();
         Siswa siswa = new Siswa();
+                
+                      
+        if (nis.isEmpty() || namasiswa.isEmpty() || idkelas.isEmpty() || idsemester.isEmpty() || namaortu.isEmpty() || alamat.isEmpty() || nmrtlp.isEmpty()){
+            request.setAttribute("Peringatan", "Semua kolom harus di isi");
+            RequestDispatcher rdp = request.getRequestDispatcher("pages/TambahSiswa.jsp");
+            rdp.forward(request, response);
+            
+       /* }else if (siswax.check(nis, namasiswa) == true ) {
+            request.setAttribute("Peringatan", "NIS dan Nama Pengguna sudah digunakan");
+            RequestDispatcher rdp = request.getRequestDispatcher("pages/TambahSiswa.jsp");
+            rdp.forward(request, response);*/
+            
+        }else if(!nis.matches("[0-9]*")){
+            request.setAttribute("Peringatan", "NIS hanya boleh di isi dengan angka saja");
+            RequestDispatcher rdp = request.getRequestDispatcher("pages/TambahSiswa.jsp");
+            rdp.forward(request, response);
+            
+        }else if (!nmrtlp.matches("[0-9]*")){
+            request.setAttribute("Peringatan", "Nomor Telepon hanya boleh di isi dengan angka saja");
+            RequestDispatcher rdp = request.getRequestDispatcher("pages/TambahSiswa.jsp");
+            rdp.forward(request, response);
         
-        if (nis.equals("") && namasiswa.equals("") && kelas.equals("") && semester.equals("") && namaortu.equals("") && alamat.equals("") && nmrtlp.equals("")){
-            request.setAttribute("Perhatian", "Semua kolom harus di isi");
         }else{
+            
+            DaftarKelas daftarkelas = new DaftarKelas();
+            Kelas kelas = daftarkelas.getKelas(Long.parseLong(request.getParameter("kelas")));
+            
+            DaftarSemester daftarsemester = new DaftarSemester();
+            Semester semester = daftarsemester.getSemester(Long.parseLong(request.getParameter("semester")));
+                        
             siswa.setNis(nis);
             siswa.setNamasiswa(namasiswa);
             siswa.setKelas(kelas);
             siswa.setSemester(semester);
             siswa.setNamaortu(namaortu);
             siswa.setnmrtlp(nmrtlp);
+            
+            siswax.addSiswa(siswa);
+            RequestDispatcher rdp = request.getRequestDispatcher("pages/TambahSiswa.jsp");
+            rdp.forward(request, response);
         }
         
                 

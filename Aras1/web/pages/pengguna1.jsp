@@ -63,14 +63,14 @@ p {
         <td width="15%" height="241"><img src="images/bg4a.JPG" width="180" height="600" /></td>
         <td width="85%" valign="top"><table width="100%" border="0">
           <tr>
-            <td width="12%" align="center"><a href="Home">Home</a></td>
-            <td width="14%" align="center">&nbsp;</td>
-            <td width="10%" align="center">&nbsp;</td>
-            <td width="10%" align="center">&nbsp;</td>
-            <td width="13%" align="center">&nbsp;</td>
-            <td width="12%" align="center">&nbsp;</td>
-            <td width="12%" align="center">&nbsp;</td>
-            <td width="12%" align="center"><a href="Logout">Log Out</a></td>
+            <td width="19%" align="center"><a href="Home">Halaman Muka</a></td>
+            <td width="11%" align="center" bgcolor="#188DC2">Pengguna</td>
+            <td width="10%" align="center">Siswa</td>
+            <td width="11%" align="center">Kelas</td>
+            <td width="11%" align="center">Semester</td>
+            <td width="10%" align="center">Absensi</td>
+            <td width="11%" align="center">Laporan</td>
+            <td width="17%" align="center"><a href="Logout">Log Out</a></td>
           </tr>
         </table>
 <!-- DARI SINI JANGAN LUPA YG LINE 6 JUGA DIGANTI --> 
@@ -79,31 +79,31 @@ p {
             <table border=0>
                 ${Peringatan}
                 <tr>
-                    <td><div align="right">Nama Pengguna :</div></td>
+                    <td><div align="left">Nama Pengguna </div></td>
                     <td><input class="input" type="text" name="namapengguna"></td>
                 </tr>
                 <tr>
-                    <td><div align="right">Kata Sandi :</div></td>
+                    <td><div align="left">Kata Sandi </div></td>
                     <td><input class="input" type="password" name="katasandi"></td>
                 </tr>    
                 <tr>
-                    <td><div align="right">Nama Lengkap :</div></td>
+                    <td><div align="left">Nama Lengkap </div></td>
                     <td><input class="input" type="text" name="nama"></td>
                 </tr>
                 <tr>
-                    <td><div align="right">N I P :</div></td>
+                    <td><div align="left">N I P </div></td>
                     <td><input class="input" type="text" name="nip"></td>
                 </tr> 
                 <tr>
-                    <td><div align="right">Alamat :</div></td>
+                    <td><div align="left">Alamat </div></td>
                     <td><input class="input" type="text" name="alamat"></td>
                 </tr>
                 <tr>
-                    <td><div align="right">Nomor Telepon :</div></td>
+                    <td><div align="left">Nomor Telepon </div></td>
                     <td><input class="input" type="text" name="telp"></td>
                 </tr>
                 <tr>
-                    <td><div align="right">Peran :</div></td>
+                    <td><div align="left">Peran </div></td>
                     <td>
                         <select name="peran">
                                         <option value="admin">Administrator</option>

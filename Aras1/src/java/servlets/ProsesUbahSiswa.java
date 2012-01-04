@@ -4,12 +4,16 @@
  */
 package servlets;
 
+import entity.DaftarSiswa;
+import entity.Siswa;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -28,7 +32,33 @@ public class ProsesUbahSiswa extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
+        
+        HttpSession session = request.getSession();
+                
+        DaftarSiswa siswax = new DaftarSiswa();
+        Siswa siswa = (Siswa)session.getAttribute("siswa");
+        
+        Long id = siswa.getId(); //Long.parseLong(request.getParameter("id") );
+        
+        String nis = request.getParameter("nis");
+        String namasiswa = request.getParameter("namasiswa");
+        String kelas = request.getParameter("kelas");
+        String semester = request.getParameter("semester");
+        String namaortu = request.getParameter("namaortu");
+        String alamat = request.getParameter("alamat");
+        String nmrtlp = request.getParameter("nmrtlp");
+        
+        siswa.setNis(nis);
+        siswa.setNamasiswa(namasiswa);
+        siswa.setKelas(null);
+        siswa.setSemester(null);
+        siswa.setAlamat(alamat);
+        siswa.setnmrtlp(nmrtlp);
+        
+            siswax.updateSiswa(siswa); //penggunax.updatePengguna(pengguna);
         try {
+            RequestDispatcher rdp = request.getRequestDispatcher("pages/TambahSiswa.jsp");
+            rdp.forward(request, response);
             /* TODO output your page here
             out.println("<html>");
             out.println("<head>");

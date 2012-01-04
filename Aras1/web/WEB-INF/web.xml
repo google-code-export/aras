@@ -18,7 +18,7 @@
     </servlet>
     <servlet>
         <servlet-name>UbahSiswa</servlet-name>
-        <servlet-class>servlets.UbahSiswa</servlet-class>
+        <servlet-class>servlets.ProsesUbahSiswa</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Logout</servlet-name>
@@ -121,10 +121,6 @@
         <url-pattern>/TambahSiswa</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>UbahSiswa</servlet-name>
-        <url-pattern>/UbahSiswa</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>Logout</servlet-name>
         <url-pattern>/Logout</url-pattern>
     </servlet-mapping>
@@ -207,6 +203,10 @@
     <servlet-mapping>
         <servlet-name>HalTambahSemesterServlet</servlet-name>
         <url-pattern>/tambahSsemester</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UbahSiswa</servlet-name>
+        <url-pattern>/ubahsiswa</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

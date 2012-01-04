@@ -4,11 +4,8 @@
  */
 package servlets;
 
-import entity.DaftarSiswa;
-import entity.Siswa;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -33,6 +30,9 @@ public class SiswaServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         
+        RequestDispatcher rdp = request.getRequestDispatcher("pages/TambahSiswa.jsp");
+        rdp.forward(request, response);
+        
         /*DaftarSiswa daftar = new DaftarSiswa ();
         List <Siswa> siswa = (List <Siswa>) daftar.getSiswa() );
         request.setAttribute("siswa", siswa);
@@ -48,8 +48,8 @@ public class SiswaServlet extends HttpServlet {
             out.println("</body>");
             out.println("</html>");
              */
-            RequestDispatcher rdp = request.getRequestDispatcher("pages/siswa.jsp");
-            rdp.forward(request, response);
+            /*RequestDispatcher rdp = request.getRequestDispatcher("pages/siswa.jsp");
+            rdp.forward(request, response);*/
         } finally {            
             out.close();
         }
