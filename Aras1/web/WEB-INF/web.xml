@@ -132,6 +132,14 @@
         <servlet-name>HapusSemesterServlet</servlet-name>
         <servlet-class>servlets.HapusSemesterServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>HomeTuServlet</servlet-name>
+        <servlet-class>servlets.HomeTuServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>HalDaftarSiswaServlet</servlet-name>
+        <servlet-class>servlets.HalDaftarSiswaServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -263,6 +271,14 @@
     <servlet-mapping>
         <servlet-name>HalTambahSemesterServlet</servlet-name>
         <url-pattern>/tambahsemester</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HomeTuServlet</servlet-name>
+        <url-pattern>/hometu</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HalDaftarSiswaServlet</servlet-name>
+        <url-pattern>/daftarsiswa</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

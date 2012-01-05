@@ -76,26 +76,26 @@ p {
         </tr>
       <tr>
         <td width="164"><p><a href="pengguna">Pengguna</a></p></td>
-        <td width="472"><p>Berisi Tambah, Ubah, Hapus Pengguna (Khusus Administrator)</p></td>
+        <td width="472"><p>Berisi Tambah, Ubah, Hapus Pengguna</p></td>
     </tr>
     <tr>
         <td width="164"><p><a href="SiswaServlet">Siswa</a></p></td>
         <td>Berisi Tambah, Ubah, Hapus Siswa</td>
     </tr> 
     <tr>
-        <td width="164"><p><a href="Kelas">Kelas</a></p></td>
+        <td width="164"><p><a href="tambahkelas">Kelas</a></p></td>
         <td>Berisi Tambah, Ubah, Hapus Kelas</td>
     </tr>
     <tr>
-        <td width="164"><p><a href="Semester">Semester</a></p></td>
+        <td width="164"><p><a href="semester">Semester</a></p></td>
         <td>Berisi Tambah, Ubah, Hapus Semester</td>
     </tr>
     <tr>
-        <td width="164"><p><a href="/absensi">Absensi</a></p></td>
+        <td width="164"><p>Absensi</p></td>
         <td>Berisi halaman absensi siswa</td>
     </tr>
     <tr>
-        <td width="164"><p><a href="/laporan">Laporan</a></p></td>
+        <td width="164"><p>Laporan</p></td>
         <td>Berisi halaman laporan rekapitulasi absensi siswa</td>
     </tr>
     

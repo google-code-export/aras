@@ -1,7 +1,7 @@
 <%-- 
-    Document   : homeguru
-    Created on : Jan 3, 2012, 2:06:17 AM
-    Author     : Heti Liyana
+    Document   : hometu
+    Created on : Jan 5, 2012, 9:14:10 AM
+    Author     : Aan
 --%>
 
 <%@page import="java.text.SimpleDateFormat"%>
@@ -80,8 +80,8 @@ p {
         <td width="472"><p>Khusus Administrator</p></td>
     </tr>
     <tr>
-        <td width="164"><p><a href="daftarsiswa">Siswa</a></p></td>
-        <td width="472">Berisi Daftar Siswa</td>
+        <td width="164"><p><a href="SiswaServlet">Siswa</a></p></td>
+        <td width="472">Berisi Tambah, Ubah, Hapus Siswa</td>
     </tr> 
     <tr>
         <td width="164"><p><a href="daftarkelas">Kelas</a></p></td>
