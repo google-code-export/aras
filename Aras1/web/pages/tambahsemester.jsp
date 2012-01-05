@@ -127,7 +127,7 @@ p {
 </table>
 </form>
           
-          <h1>Daftar Kelas</h1>
+          <h1>Daftar Semester</h1>
 <form>
 <table width="650" border="0">
    

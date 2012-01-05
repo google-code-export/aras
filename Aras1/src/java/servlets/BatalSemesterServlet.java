@@ -4,24 +4,19 @@
  */
 package servlets;
 
-import entity.Kelas;
-import entity.DaftarKelas;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import jpa.exceptions.NonexistentEntityException;
 
 /**
  *
- * @author Heti Liyana
+ * @author aan
  */
-public class HapusKelasServlet extends HttpServlet {
+public class BatalSemesterServlet extends HttpServlet {
 
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -31,27 +26,20 @@ public class HapusKelasServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, NonexistentEntityException {
+            throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        
-        HttpSession sessionedit=request.getSession();
-        
-        DaftarKelas daftar = new DaftarKelas();
-        Kelas kelas = (Kelas) sessionedit.getAttribute("kelas");
-        Long id = kelas.getId();
-        
-        daftar.deleteKelas(id);
-        response.sendRedirect("tambahkelas");
+        RequestDispatcher rdp = request.getRequestDispatcher("pages/tambahsemester.jsp");
+        rdp.forward(request, response);
         
         try {
             /* TODO output your page here
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet HapusKelasServlet</title>");  
+            out.println("<title>Servlet BatalSemesterServlet</title>");  
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet HapusKelasServlet at " + request.getContextPath () + "</h1>");
+            out.println("<h1>Servlet BatalSemesterServlet at " + request.getContextPath () + "</h1>");
             out.println("</body>");
             out.println("</html>");
              */
@@ -60,7 +48,6 @@ public class HapusKelasServlet extends HttpServlet {
         }
     }
 
-    
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /** 
      * Handles the HTTP <code>GET</code> method.
@@ -72,11 +59,7 @@ public class HapusKelasServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (NonexistentEntityException ex) {
-            Logger.getLogger(HapusKelasServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /** 
@@ -89,11 +72,7 @@ public class HapusKelasServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (NonexistentEntityException ex) {
-            Logger.getLogger(HapusKelasServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /** 

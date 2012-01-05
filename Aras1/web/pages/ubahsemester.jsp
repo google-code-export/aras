@@ -5,10 +5,10 @@
 --%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.text.DateFormat"%>
-<%@page import="entity.Kelas"%>
+<%@page import="entity.Semester"%>
 
 <% DateFormat df = new SimpleDateFormat("dd/MM/yyyy");%>
-<% Kelas kelas =(Kelas)request.getAttribute("kelas");%>
+<% Semester semester =(Semester)request.getAttribute("semester");%>
 
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -115,7 +115,7 @@ p {
                     <td></td>
                     <td><input type="submit" value="Simpan" onclick ="this.form.action='ubah_semester';this.form.submit()">
                     <input type="reset" value="Batal" onclick ="this.form.action='batal_semester';this.form.submit()">
-                    <td><input type="button" value="Hapus" onclick="this.form.action='hapus_semester';this.form.submit();"></td>
+                        <td><input type="button" value="Hapus" onclick="this.form.action='hapus_semester';this.form.submit();"></td>
     </tr>
             </table>
         </form>

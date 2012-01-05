@@ -140,6 +140,10 @@
         <servlet-name>HalDaftarSiswaServlet</servlet-name>
         <servlet-class>servlets.HalDaftarSiswaServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>BatalSemesterServlet</servlet-name>
+        <servlet-class>servlets.BatalSemesterServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -279,6 +283,10 @@
     <servlet-mapping>
         <servlet-name>HalDaftarSiswaServlet</servlet-name>
         <url-pattern>/daftarsiswa</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BatalSemesterServlet</servlet-name>
+        <url-pattern>/batal_semester</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
