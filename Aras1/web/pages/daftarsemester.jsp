@@ -1,18 +1,17 @@
 <%-- 
-    Document   : halamankelas
-    Created on : Jan 1, 2012, 3:56:10 PM
+    Document   : daftarsemester
+    Created on : Jan 4, 2012, 10:02:27 PM
     Author     : Heti Liyana
 --%>
 
-
-<%@page import="entity.DaftarKelas"%>
-<%@page import="entity.Kelas"%>
+<%@page import="entity.DaftarSemester"%>
+<%@page import="entity.Semester"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
 
-<% DaftarKelas daftar = new DaftarKelas();%>
-<% List<Kelas> kelas = daftar.getKelas();%>
-<% Iterator<Kelas> iterator = kelas.iterator();%>
+<% DaftarSemester daftar = new DaftarSemester();%>
+<% List<Semester> semester = daftar.getSemester();%>
+<% Iterator<Semester> iterator = semester.iterator();%>
 
 
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
@@ -20,7 +19,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Daftar Kelas</title>
+<title>Daftar Semester</title>
 <style type="text/css">
 body,td,th {
 	color: #000;
@@ -48,7 +47,7 @@ p {
   <div class="header"><!-- end .header -->
     <table width="100%" border="0">
       <tr>
-        <td bgcolor="#FFFFFF"><img src="images/arasz.JPG" width="936" height="142" /></td>
+          <td bgcolor="#FFFFFF"><img src="images/arasz.JPG" width="936" height="142" />&nbsp;</td>
       </tr>
     </table>
   </div>
@@ -63,8 +62,8 @@ p {
             <td width="19%" align="center"><a href="homeguru">Halaman Muka</a></td>
             <td width="11%" align="center">&nbsp;</td>
             <td width="10%" align="center">&nbsp;</td>
-            <td width="11%" align="center" bgcolor="#188DC2">Kelas</td>
-            <td width="11%" align="center">Semester</td>
+            <td width="11%" align="center"><a href="daftarkelas">Kelas</a></td>
+            <td width="11%" align="center" bgcolor="#188DC2">Semester</td>
             <td width="10%" align="center">Absensi</td>
             <td width="11%" align="center">&nbsp;</td>
             <td width="17%" align="center"><a href="Logout">Log Out</a></td>
@@ -72,7 +71,7 @@ p {
         </table>
 <!-- DARI SINI JANGAN LUPA YG LINE 6 JUGA DIGANTI --> 
          
-<h1>Daftar Kelas</h1>
+<h1>Daftar Semester</h1>
 <form>
 <table width="650" border="0">
    
@@ -82,19 +81,19 @@ p {
            </tr>
          <tr>
                     <td width="10%" align="center">&nbsp;</td>
-                    <th width="10%" align="center">Id Kelas</th>
-                    <th width="20%" align="center">Nama Kelas</th>
-                    <th width="" align="left">Guru Wali</th>
+                    <th width="10%" align="center">Id</th>
+                    <th width="20%" align="center">Nama Semester</th>
+                    <th width="" align="left">Tahun Ajaran</th>
                   
                    
                 </tr>
                 <% while (iterator.hasNext()) {%>
-      <% Kelas next = iterator.next();%>
+      <% Semester next = iterator.next();%>
                 <tr>
                     <td>&nbsp;</td>
                     <td width="10%" align="right"><%=next.getId()%></td>
-                    <td width="20%" align="center"><%=next.getNamakelas()%></td>
-                    <td width="" align="left"><%=next.getNamaguru()%></td>
+                   <td width="20%" align="center"><%=next.getNamasemester()%></td>
+                    <td width="" align="left"><%=next.getTahunajaran()%></td>
                   
                 </tr>
                 <%}%>

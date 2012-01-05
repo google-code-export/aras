@@ -64,6 +64,35 @@ public class DaftarSemester implements Serializable {
         return semester;
     }
     
+    public Semester getNamasemester(String namasemester) {
+        Semester semester = null;
+        EntityManager em = getEntityManager();
+        try {
+                Query q = em.createQuery("SELECT object(o) FROM Semester AS o WHERE o.namasemester=:namasemester");
+                q.setParameter("namasemester", namasemester);
+                semester = (Semester) q.getSingleResult();
+            
+        } finally {
+            em.close();
+        }
+        return semester;
+    }
+    
+    public Semester getTahunajaran(String tahunajaran) {
+        Semester semester = null;
+        EntityManager em = getEntityManager();
+        try {
+            
+                Query q = em.createQuery("SELECT object(o) FROM Semester AS o WHERE o.namasemester=:namasemester");
+                q.setParameter("tahunajaran", tahunajaran);
+                semester = (Semester) q.getSingleResult();
+            
+        } finally {
+            em.close();
+        }
+        return semester;
+    }
+    
     public List<Semester> getSemester() {
         List<Semester> Semesters = new ArrayList<Semester>();
 
@@ -90,6 +119,8 @@ public class DaftarSemester implements Serializable {
             em.close();
         }
     }
+    
+  
 
     public void addSemester(Semester semester) {
         EntityManager em = getEntityManager();
@@ -133,6 +164,25 @@ public class DaftarSemester implements Serializable {
             em.close();
         }
     }
+    
+    
+    public boolean check(String namasemester, String tahunajaran) {
+        boolean result = false;
+        EntityManager em = getEntityManager();
+        try {
+            Query q = em.createQuery("SELECT COUNT (o) FROM Semester AS o WHERE o.namasemester=:namasemester AND o.tahunajaran=:tahunajaran");
+            q.setParameter("namasemester", namasemester);
+            q.setParameter("tahunajaran", tahunajaran);
+            int jumlahSemester = ((Long) q.getSingleResult()).intValue();
+            if (jumlahSemester == 1) {
+                result = true;
+            }
+        } finally {
+            em.close();
+        }
+        return result;
+    }
+    
     
     public EntityManagerFactory getEmf() {
         return emf;

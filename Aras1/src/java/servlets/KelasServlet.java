@@ -4,15 +4,11 @@
  */
 package servlets;
 
-import entity.DaftarSemester;
-import entity.Semester;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.ParseException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,7 +17,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Heti Liyana
  */
-public class TambahSemesterServlet extends HttpServlet {
+@WebServlet(name = "Kelas", urlPatterns = {"/kelas"})
+public class KelasServlet extends HttpServlet {
 
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -31,44 +28,22 @@ public class TambahSemesterServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ParseException {
+            throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        
-       // String dateString = request.getParameter("tanggalawal");
-       // String tanggalString = request.getParameter("tanggalkhir");
-       // SimpleDateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy");
-       // Date awal = dateFormat.parse(dateString);
-       // Date akhir = dateFormat.parse(tanggalString);
-        String sem = request.getParameter("namasemester");
-        String tahun = request.getParameter("tahunajaran");
-        DaftarSemester daftar = new DaftarSemester ();
-        Semester semester = new Semester ();
-        
-        if (sem.isEmpty() || tahun.isEmpty() ) {
-            request.setAttribute("Peringatan","Semua kolom harus di isi!");
-            RequestDispatcher rdp = request.getRequestDispatcher("pages/tambahsemester.jsp");
-            rdp.forward(request, response);
-        
-        }else if (daftar.check(sem,tahun) == true ) {
-            request.setAttribute("Peringatan", "Nama Semester sudah digunakan");
-            RequestDispatcher rdp = request.getRequestDispatcher("pages/tambahsemester.jsp");
-            rdp.forward(request, response);
-        
-         }else{
-        
-        semester.setNamasemester(sem);
-        semester.setTahunajaran(tahun);
-       // semester.setTanggalawal(awal);
-       // semester.setTanggalakhir(akhir);
-        
-        daftar.addSemester(semester);
-        RequestDispatcher rdp = request.getRequestDispatcher("pages/tambahsemester.jsp");
-            rdp.forward(request, response);
-        }
-        
         try {
-           
+            RequestDispatcher rdp = request.getRequestDispatcher("pages/tambahkelas.jsp");
+            rdp.forward(request, response);
+            /* TODO output your page here
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet KelasServlet</title>");  
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet KelasServlet at " + request.getContextPath () + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+             */
         } finally {            
             out.close();
         }
@@ -85,11 +60,7 @@ public class TambahSemesterServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (ParseException ex) {
-            Logger.getLogger(TambahSemesterServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /** 
@@ -102,11 +73,7 @@ public class TambahSemesterServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (ParseException ex) {
-            Logger.getLogger(TambahSemesterServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /** 

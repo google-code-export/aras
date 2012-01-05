@@ -4,21 +4,22 @@
  */
 package servlets;
 
+import entity.DaftarKelas;
+import entity.Kelas;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Heti Liyana
  */
-@WebServlet(name = "Kelas", urlPatterns = {"/kelas"})
-public class KelasServlets extends HttpServlet {
+public class UbahKelasServlet extends HttpServlet {
 
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -31,16 +32,33 @@ public class KelasServlets extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
+          
+        HttpSession session = request.getSession();
+        
+        DaftarKelas kelasx = new DaftarKelas();
+        Kelas kelas = (Kelas)session.getAttribute("kelas");
+        
+        Long id = kelas.getId(); //Long.parseLong(request.getParameter("id") );
+        
+        String namakelas = request.getParameter("namakelas");
+        String namaguru = request.getParameter("namaguru");
+        
+        
+        kelas.setNamakelas(namakelas);
+        kelas.setNamaguru(namaguru);
+           
+        
+            kelasx.editKelas(kelas);
         try {
             RequestDispatcher rdp = request.getRequestDispatcher("pages/tambahkelas.jsp");
             rdp.forward(request, response);
             /* TODO output your page here
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet KelasServlets</title>");  
+            out.println("<title>Servlet UbahKelasServlet</title>");  
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet KelasServlets at " + request.getContextPath () + "</h1>");
+            out.println("<h1>Servlet UbahKelasServlet at " + request.getContextPath () + "</h1>");
             out.println("</body>");
             out.println("</html>");
              */

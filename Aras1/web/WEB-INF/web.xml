@@ -26,7 +26,7 @@
     </servlet>
     <servlet>
         <servlet-name>Kelas</servlet-name>
-        <servlet-class>servlets.KelasServlets</servlet-class>
+        <servlet-class>servlets.KelasServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>TambahKelasServlet</servlet-name>
@@ -103,6 +103,34 @@
     <servlet>
         <servlet-name>HalTambahSemesterServlet</servlet-name>
         <servlet-class>servlets.HalTambahSemester</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UbahKelasServlet</servlet-name>
+        <servlet-class>servlets.UbahKelasServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>BatalKelasServlet</servlet-name>
+        <servlet-class>servlets.BatalKelasServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>HapusKelasServlet</servlet-name>
+        <servlet-class>servlets.HapusKelasServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>HalUbahKelasServlet</servlet-name>
+        <servlet-class>servlets.HalUbahKelasServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>HalUbahSemesterServlet</servlet-name>
+        <servlet-class>servlets.HalUbahSemesterServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UbahSemesterServlet</servlet-name>
+        <servlet-class>servlets.UbahSemesterServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>HapusSemesterServlet</servlet-name>
+        <servlet-class>servlets.HapusSemesterServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
@@ -197,16 +225,44 @@
         <url-pattern>/tambah_kelas</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>UbahKelasServlet</servlet-name>
+        <url-pattern>/ubah_kelas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BatalKelasServlet</servlet-name>
+        <url-pattern>/batal_kelas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HapusKelasServlet</servlet-name>
+        <url-pattern>/hapus_kelas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>HalTambahKelasServlet</servlet-name>
         <url-pattern>/tambahkelas</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>HalTambahSemesterServlet</servlet-name>
-        <url-pattern>/tambahSsemester</url-pattern>
+        <servlet-name>HalUbahKelasServlet</servlet-name>
+        <url-pattern>/ubahkelas</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>UbahSiswa</servlet-name>
         <url-pattern>/ubahsiswa</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HalUbahSemesterServlet</servlet-name>
+        <url-pattern>/ubahsemester</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UbahSemesterServlet</servlet-name>
+        <url-pattern>/ubah_semester</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HapusSemesterServlet</servlet-name>
+        <url-pattern>/hapus_semester</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HalTambahSemesterServlet</servlet-name>
+        <url-pattern>/tambahsemester</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

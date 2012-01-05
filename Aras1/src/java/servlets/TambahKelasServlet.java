@@ -8,6 +8,7 @@ import entity.DaftarKelas;
 import entity.Kelas;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -34,22 +35,46 @@ public class TambahKelasServlet extends HttpServlet {
         
         String nama = request.getParameter("namakelas");
         String guru = request.getParameter("namaguru");
+        
         DaftarKelas daftar = new DaftarKelas ();
         Kelas kelas = new Kelas ();
+        
+        if (nama.isEmpty() || guru.isEmpty() ) {
+            request.setAttribute("Peringatan","Semua kolom harus di isi!");
+            RequestDispatcher rdp = request.getRequestDispatcher("pages/tambahkelas.jsp");
+            rdp.forward(request, response);
+        
+        }else if (daftar.check(nama,guru) == true ) {
+            request.setAttribute("Peringatan", "Nama Kelas sudah digunakan");
+            RequestDispatcher rdp = request.getRequestDispatcher("pages/tambahkelas.jsp");
+            rdp.forward(request, response);
+            
+        }else if (nama.length() > 4){
+            request.setAttribute("Peringatan", "Nama Kelas maksimal 4 digit");
+            RequestDispatcher rdp = request.getRequestDispatcher("pages/tambahkelas.jsp");
+            rdp.forward(request, response);
+        
+       
+        }else{
+           
+        
         
         kelas.setNamakelas(nama);
         kelas.setNamaguru(guru);
         
         daftar.addKelas(kelas);
-        response.sendRedirect("daftarkelas");
-        
-        
+            RequestDispatcher rdp = request.getRequestDispatcher("pages/tambahkelas.jsp");
+            rdp.forward(request, response);
+        //response.sendRedirect("tambahkelas");
+        }
         
         try {
            
         } finally {            
             out.close();
         }
+    
+    
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -88,3 +113,5 @@ public class TambahKelasServlet extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 }
+
+    

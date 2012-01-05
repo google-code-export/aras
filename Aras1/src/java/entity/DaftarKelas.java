@@ -65,6 +65,37 @@ public class DaftarKelas implements Serializable {
         return kelas;
     }
     
+     public Kelas getNamakelas(String namakelas) {
+        Kelas kelas = null;
+        EntityManager em = getEntityManager();
+        try {
+        
+                Query q = em.createQuery("SELECT object(o) FROM Kelas AS o WHERE o.namakelas=:namakelas");
+                q.setParameter("namakelas", namakelas);
+                kelas = (Kelas) q.getSingleResult();
+            
+        } finally {
+            em.close();
+        }
+        return kelas;
+    }
+    
+      public Kelas getNamaguru(String namaguru) {
+        Kelas kelas = null;
+        EntityManager em = getEntityManager();
+        try {
+        
+                Query q = em.createQuery("SELECT object(o) FROM Kelas AS o WHERE o.namakelas=:namakelas");
+                q.setParameter("namaguru", namaguru);
+                kelas = (Kelas) q.getSingleResult();
+            
+        } finally {
+            em.close();
+        }
+        return kelas;
+    }
+    
+     
     public List<Kelas> getKelas() {
         List<Kelas> Kelass = new ArrayList<Kelas>();
 
@@ -142,4 +173,22 @@ public class DaftarKelas implements Serializable {
     public void setEmf(EntityManagerFactory emf) {
         this.emf = emf;
     }
+
+    public boolean check(String namakelas, String namaguru) {
+        boolean result = false;
+        EntityManager em = getEntityManager();
+        try {
+            Query q = em.createQuery("SELECT COUNT (o) FROM Kelas AS o WHERE o.namakelas=:namakelas AND o.namaguru=:namaguru");
+            q.setParameter("namakelas", namakelas);
+            q.setParameter("namaguru", namaguru);
+            int jumlahKelas = ((Long) q.getSingleResult()).intValue();
+            if (jumlahKelas == 1) {
+                result = true;
+            }
+        } finally {
+            em.close();
+        }
+        return result;
+    }
+    
 }

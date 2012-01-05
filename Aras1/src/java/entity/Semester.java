@@ -24,10 +24,10 @@ public class Semester implements Serializable {
     private Long id;
     private String namasemester;
     private String tahunajaran;
-    @Temporal(javax.persistence.TemporalType.DATE)
-    private Date tanggalawal;
-    @Temporal(javax.persistence.TemporalType.DATE)
-    private Date tanggalakhir;
+    // @Temporal(javax.persistence.TemporalType.DATE)
+    // private Date tanggalawal;
+    // @Temporal(javax.persistence.TemporalType.DATE)
+    // private Date tanggalakhir;
 
     public Long getId() {
         return id;
@@ -53,7 +53,7 @@ public class Semester implements Serializable {
         this.tahunajaran = tahunajaran;
     }
     
-    public Date getTanggalawal() {
+    /* public Date getTanggalawal() {
         return tanggalawal;
     }
 
@@ -68,7 +68,7 @@ public class Semester implements Serializable {
     public void setTanggalakhir(Date tanggalakhir) {
         this.tanggalakhir = tanggalakhir;
     }
-
+*/
     @Override
     public int hashCode() {
         int hash = 0;

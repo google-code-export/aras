@@ -1,26 +1,21 @@
 <%-- 
-    Document   : tambahsemester
-    Created on : Jan 1, 2012, 3:55:20 PM
+    Document   : ubahsemester
+    Created on : Jan 5, 2012, 6:44:28 AM
     Author     : Heti Liyana
 --%>
-
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.text.DateFormat"%>
-<%@page import="entity.DaftarSemester"%>
-<%@page import="entity.Semester"%>
-<%@page import="java.util.Iterator"%>
-<%@page import="java.util.List"%>
+<%@page import="entity.Kelas"%>
 
 <% DateFormat df = new SimpleDateFormat("dd/MM/yyyy");%>
-<% DaftarSemester daftar = new DaftarSemester();%>
-<% List<Semester> semester = daftar.getSemester();%>
-<% Iterator<Semester> iterator = semester.iterator();%>
+<% Kelas kelas =(Kelas)request.getAttribute("kelas");%>
+
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Tambah Semester</title>
+<title>Ubah Semester</title>
 
 <style type="text/css">
 body,td,th {
@@ -46,9 +41,9 @@ p {
 
 <body>
 <div class="container">
-
- <tr>
+<tr>
     <table>
+
   <div class="header"><!-- end .header -->
     <table width="100%" border="0">
       <tr>
@@ -74,11 +69,11 @@ p {
           </tr>
         </table>
 <!-- DARI SINI JANGAN LUPA YG LINE 6 JUGA DIGANTI --> 
+        <h1>Ubah / Hapus Semester</h1>
 
-          <h1>Menambah Semester</h1>
-          <form action="tambah_semester" method="POST">
-          <table border="0">
-      <tr>
+            <form method="post" action="">
+            <table border="0">
+                <tr>
         <td><div align="left"><p>Nama Semester :</p></div></td>
         <td><select name="namasemester">
           <option value="Ganjil">Ganjil</option>
@@ -115,57 +110,22 @@ p {
         </select></td>
         <td><p>&nbsp;</p></td>
         <td><p>&nbsp;</p></td>
+    </tr>  
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Simpan" onclick ="this.form.action='ubah_semester';this.form.submit()">
+                    <input type="reset" value="Batal" onclick ="this.form.action='batal_semester';this.form.submit()">
+                    <td><input type="button" value="Hapus" onclick="this.form.action='hapus_semester';this.form.submit();"></td>
     </tr>
+            </table>
+        </form>
     
-    <tr>
-        <td></td>
-        <td><input type="submit" value="Tambah" /></td>
-         <td><p>&nbsp;</p></td>
-        <td><p>&nbsp;</p></td>    
-    </tr> 
     
-</table>
-</form>
-          
-          <h1>Daftar Kelas</h1>
-<form>
-<table width="650" border="0">
-   
-    <tr>
-                    <td width="10%" align="center">&nbsp;</td>
-                    <th colspan="3" align="left">&nbsp;</th>
-           </tr>
-         <tr>
-                    <td width="10%" align="center">&nbsp;</td>
-                    <th width="10%" align="center">Id</th>
-                    <th width="20%" align="center">Nama Semester</th>
-                    <th width="" align="left">Tahun Ajaran</th>
-                    <th width="10%" align="center">Ubah/Hapus</th>
-                  
-                   
-                </tr>
-                <% while (iterator.hasNext()) {%>
-                <% Semester next = iterator.next();%>
-                <tr>
-                    <td>&nbsp;</td>
-                    <td width="10%" align="right"><%=next.getId()%></td>
-                    <td width="20%" align="center"><%=next.getNamasemester()%></td>
-                    <td width="" align="left"><%=next.getTahunajaran()%></td>
-                    <td align="center" bgcolor="#B9DDF3"><a href="ubahsemester?id=<%=next.getId()%>"><font color="black">pilih</font></a></td>
-                </tr>
-                <%}%>
-                <tr>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-            </table></td>
 
-
-                </form>
                 
+      <!-- SAMPAI SINI  -->
           
-        <!-- SAMPAI SINI  -->
-        <p>&nbsp;</p>
+          <p>&nbsp;</p>
 <p>&nbsp;</p></td>
      </tr>
     </table>
@@ -181,4 +141,4 @@ p {
  </tr>
 </div>
 </body>
-    </html>
+    </html>           
