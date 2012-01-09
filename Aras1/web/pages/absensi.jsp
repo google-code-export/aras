@@ -55,7 +55,7 @@ p {
   <div class="header"><!-- end .header -->
     <table width="100%" border="0">
       <tr>
-        <td bgcolor="#FFFFFF"><img src="/images/arasz.JPG" width="936" height="142" /></td>
+          <td bgcolor="#FFFFFF"><img src="images/arasz.JPG" width="936" height="142" />&nbsp;</td>
       </tr>
     </table>
   </div>
@@ -79,7 +79,7 @@ p {
             <td width="11%" align="center">Semester</td>
             <td width="10%" align="center" bgcolor="#188DC2">Absensi</td>
             <td width="11%" align="center">Laporan</td>
-            <td width="17%" align="center"><a href="../../src/java/servlets/Logout.java">Log Out</a></td>
+            <td width="17%" align="center"><a href="Logout">Log Out</a></td>
           </tr>
         </table>
 <!-- DARI SINI JANGAN LUPA YG LINE 6 JUGA DIGANTI --> 
@@ -106,19 +106,20 @@ p {
                      
                  <td width="10%">&nbsp;</td>
                  <td>Keterangan</td><td><select name="keterangan">
-                       <option value="1">Masuk</option>
-                       <option value="2">Sakit</option>
-                       <option value="3">Izin</option>
-                       <option value="4">Tanpa Keterangan</option>
+                       <option value="Masuk">Masuk</option>
+                       <option value="Sakit">Sakit</option>
+                       <option value="Izin">Izin</option>
+                       <option value="Tanpa Keterangan">TK</option>
                    </select></td>
               </tr> 
             
               
                 <tr> <td>
-       <td> <input name="Simpan" value="Simpan" type="submit"></td>
-       <td> <input name="Batal" value="Batal" type="reset"></td> 
+       <td> <input  value="Simpan" type="submit"></td>
+       <td> <input  value="Batal" type="reset"></td> 
                     </td></tr>
-
+        </table>
+                   
         <%--
             <input type="text" name="namapengguna" value="" /> <br>
             <input type="password" name="katasandi" value="" /> <br>
@@ -126,18 +127,38 @@ p {
             <input type="reset" value="batal" />
             
             --%>
-            <% while (itabsen.hasNext() ) {%>
-                <% Absensi next = itabsen.next (); %>
-                <tr>
-                    <td>
-                
-                    </td>
-                    <td>
-                <%=next.getKeterangan() %>   
-                    </td>
+            <form>
+        <table width="650" border="0">
+   
+    <tr>
+                    <td width="10%" align="center">&nbsp;</td>
+                    <th colspan="3" align="left">&nbsp;</th>
+           </tr>
+         <tr>
+                    <td width="10%" align="center">&nbsp;</td>
+                    <th width="10%" align="center">Id</th>
+                    <th width="10%" align="center">Nama Siswa</th>
+                    <th width="20%" align="center">Keterangan</th>
+                                       
                 </tr>
+
+        
+            <% while (itabsen.hasNext() ) {%>
+                <% Absensi tabsen = itabsen.next (); %>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td width="10%" align="center"><%=tabsen.getId()%></td>
+                    <td width="20%" align="left"><%=tabsen.getSiswa().getNamasiswa() %></td>
+                    <td width="20%" align="center"><%=tabsen.getKeterangan() %></td>
+                     </tr>
                 <% }%>
-            
+                 <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                
+                
+                
             </table>
             
         </form>
