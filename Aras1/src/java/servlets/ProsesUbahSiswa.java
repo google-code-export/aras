@@ -33,14 +33,23 @@ public class ProsesUbahSiswa extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         
-        HttpSession session = request.getSession();
+        /*HttpSession session = request.getSession();
                 
         DaftarSiswa siswax = new DaftarSiswa();
         Siswa siswa = (Siswa)session.getAttribute("siswa");
         
-        Long id = siswa.getId(); //Long.parseLong(request.getParameter("id") );
+        //Long id = siswa.getId(); //
+        Long.parseLong(request.getParameter("id") );*/
+        Long id = Long.parseLong(request.getParameter("id") );
         
-        String nis = request.getParameter("nis");
+        DaftarSiswa siswax = new DaftarSiswa();
+        Siswa siswa = siswax.findSiswa(id);
+        
+        HttpSession sessionedit=request.getSession();
+        sessionedit.setAttribute("siswa", siswa);
+        request.setAttribute("siswa", siswa);
+        
+        /*String nis = request.getParameter("nis");
         String namasiswa = request.getParameter("namasiswa");
         String kelas = request.getParameter("kelas");
         String semester = request.getParameter("semester");
@@ -55,9 +64,9 @@ public class ProsesUbahSiswa extends HttpServlet {
         siswa.setAlamat(alamat);
         siswa.setnmrtlp(nmrtlp);
         
-            siswax.updateSiswa(siswa); //penggunax.updatePengguna(pengguna);
+            siswax.updateSiswa(siswa); //penggunax.updatePengguna(pengguna);*/
         try {
-            RequestDispatcher rdp = request.getRequestDispatcher("pages/TambahSiswa.jsp");
+            RequestDispatcher rdp = request.getRequestDispatcher("pages/UbahSiswa.jsp");
             rdp.forward(request, response);
             /* TODO output your page here
             out.println("<html>");

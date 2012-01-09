@@ -118,10 +118,10 @@ public class DaftarSiswa {
         boolean result = false;
         EntityManager em = getEntityManager();
         try {
-            Query q = (Query) em.createQuery("SELECT a FROM Siswa AS a WHERE a.nis=:nis AND a.namasiswa=:namasiswa");
+            Query q = (Query) em.createQuery("SELECT COUNT (a) FROM Siswa AS a WHERE a.nis=:nis AND a.namasiswa=:namasiswa");
                 q.setParameter("nis", nis);
                 q.setParameter("namasiswa", namasiswa);
-            int jumlahSiswa = ((Integer) q.getSingleResult()).intValue();
+            int jumlahSiswa = ((Long) q.getSingleResult()).intValue();
             if (jumlahSiswa == 1) {
                 result = true;
             }

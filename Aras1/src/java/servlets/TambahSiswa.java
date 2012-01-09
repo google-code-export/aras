@@ -53,10 +53,10 @@ public class TambahSiswa extends HttpServlet {
             RequestDispatcher rdp = request.getRequestDispatcher("pages/TambahSiswa.jsp");
             rdp.forward(request, response);
             
-       /* }else if (siswax.check(nis, namasiswa) == true ) {
+        }else if (siswax.check(nis, namasiswa) == true ) {
             request.setAttribute("Peringatan", "NIS dan Nama Pengguna sudah digunakan");
             RequestDispatcher rdp = request.getRequestDispatcher("pages/TambahSiswa.jsp");
-            rdp.forward(request, response);*/
+            rdp.forward(request, response);
             
         }else if(!nis.matches("[0-9]*")){
             request.setAttribute("Peringatan", "NIS hanya boleh di isi dengan angka saja");

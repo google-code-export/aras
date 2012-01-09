@@ -42,7 +42,7 @@ public class HapusSiswa extends HttpServlet {
         Long id = siswa.getId();
         
         siswax.deleteSiswa(id);
-        response.sendRedirect("Siswa");
+        response.sendRedirect("TambahSiswa");
         try {
             /* TODO output your page here
             out.println("<html>");
