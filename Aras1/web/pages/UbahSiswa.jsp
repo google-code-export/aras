@@ -4,16 +4,24 @@
     Author     : margoutomo
 --%>
 
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.List"%>
 <%@page import="entity.Siswa"%>
+<%@page import="entity.Kelas"%>
+<%@page import="entity.Semester"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <% Siswa siswa = (Siswa)request.getAttribute("siswa");%>
+<% List<Kelas> listkelas = (List<Kelas>) request.getAttribute("listkelas");%>
+<% Kelas kelas; %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Ubah Siswa</title>
     </head>
     <body>
+        <%-- out.println(kelas);--%>
     <center>
         <form method="post" action="">
             <table border=0>
@@ -27,11 +35,26 @@
                 </tr>
                 <tr>
                     <td> Kelas : </td>
-                    <td><input class="input" type="text" name="kelas" value="<%= siswa.getKelas()%>"></td>
+                    <td><input class="input" type="text" name="kelas" value="<%= siswa.getKelas().getNamakelas() %>"></td>
+                </tr>
+                <td>
+                    <select name="kelas">    
+                    <% Iterator<Kelas> iterator = listkelas.iterator(); %>
+                    <% while (iterator.hasNext()) { kelas = iterator.next(); 
+                    if (siswa.getKelas().getId().equals(kelas.getId() )){
+                        out.println("<option value=" + kelas.getNamakelas() + "selected=\"selected\">" + kelas.getNamakelas() + "</option>");
+                    
+                    }else { 
+                        out.println("<option value=" + kelas.getNamakelas() + ">" + kelas.getNamakelas() + "</option>");
+                    }
+                    }%>
+                    </select>
+                    
+                    </td>
                 </tr>
                 <tr>
                     <td> Semester : </td>
-                    <td><input class="input" type="text" name="semester" value="<%= siswa.getSemester()%>"></td>
+                    <td><input class="input" type="text" name="semester" value="<%= siswa.getSemester().getNamasemester() %>"></td>
                 </tr>
                 <tr>
                     <td> Nama Orangtua : </td>

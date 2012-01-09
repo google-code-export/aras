@@ -4,10 +4,13 @@
  */
 package servlets;
 
+import entity.DaftarKelas;
 import entity.DaftarSiswa;
+import entity.Kelas;
 import entity.Siswa;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -44,6 +47,10 @@ public class ProsesUbahSiswa extends HttpServlet {
         
         DaftarSiswa siswax = new DaftarSiswa();
         Siswa siswa = siswax.findSiswa(id);
+        
+        DaftarKelas daftarkelas = new DaftarKelas();
+        List<Kelas> kelas = daftarkelas.getKelas(); 
+        request.setAttribute("listkelas", kelas);
         
         HttpSession sessionedit=request.getSession();
         sessionedit.setAttribute("siswa", siswa);
