@@ -156,7 +156,7 @@ p {
                     <td>&nbsp;</td>
                     <td align="center"><%=next.getNis()%></td>
                     <td colspan="2" align="center"><%=next.getNamasiswa()%></td>
-                    <td align="center"><%=next.getKelas()%></td>
+                    <td align="center"><%=next.getKelas().getNamakelas()%></td>
                     <td align="center" bgcolor="#F4F4F4"><a href="ubahsiswa?id=<%=next.getId()%>"><font color="brown">pilih</font></a></td>
                     <td bgcolor="#F4F4F4">&nbsp;</td>
                 </tr>
