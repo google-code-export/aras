@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -42,7 +43,10 @@ public class HapusSiswa extends HttpServlet {
         Long id = siswa.getId();
         
         siswax.deleteSiswa(id);
-        response.sendRedirect("TambahSiswa");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/pages/TambahSiswa.jsp");
+        requestDispatcher.forward(request, response);
+
+        //response.sendRedirect("TambahSiswa");
         try {
             /* TODO output your page here
             out.println("<html>");
