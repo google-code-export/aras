@@ -37,10 +37,10 @@ public class HalTambahSemesterServlet extends HttpServlet {
             /* TODO output your page here
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet HalTambahSemesterServlets</title>");  
+            out.println("<title>Servlet HalTambahSemesterServlet</title>");  
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet HalTambahSemesterServlets at " + request.getContextPath () + "</h1>");
+            out.println("<h1>Servlet HalTambahSemesterServlet at " + request.getContextPath () + "</h1>");
             out.println("</body>");
             out.println("</html>");
              */

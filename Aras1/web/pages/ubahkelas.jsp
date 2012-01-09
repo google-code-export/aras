@@ -91,8 +91,8 @@ p {
         <td><input type="submit" value="Simpan" onclick ="this.form.action='ubah_kelas';this.form.submit()">
         <input type="reset" value="Batal" onclick ="this.form.action='batal_kelas';this.form.submit()">
         <td><input type="button" value="Hapus" onclick="this.form.action='hapus_kelas';this.form.submit();"></td>
-    </tr>
-    </table>
+        </tr>
+        </table>
     </form>
 
           <!-- SAMPAI SINI  -->

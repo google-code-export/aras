@@ -74,7 +74,7 @@ p {
             <form method="post" action="">
             <table border="0">
                 <tr>
-        <td><div align="left"><p>Nama Semester :</p></div></td>
+        <td>Nama Semester</td>
         <td><select name="namasemester">
           <option value="Ganjil">Ganjil</option>
           <option value="Genap">Genap</option>
@@ -83,7 +83,7 @@ p {
         <td><p>&nbsp;</p></td>
     </tr>
       <tr>
-        <td><div align="left"><p>Tahun Ajaran :</p></div></td>
+        <td>Tahun Ajaran :</td>
         <td><select name="tahunajaran">
           <option value="2011/2012">2011/2012</option>
           <option value="2012/2013">2012/2013</option>
@@ -112,12 +112,12 @@ p {
         <td><p>&nbsp;</p></td>
     </tr>  
                 <tr>
-                    <td></td>
-                    <td><input type="submit" value="Simpan" onclick ="this.form.action='ubah_semester';this.form.submit()">
-                    <input type="reset" value="Batal" onclick ="this.form.action='batal_semester';this.form.submit()">
-                        <td><input type="button" value="Hapus" onclick="this.form.action='hapus_semester';this.form.submit();"></td>
-    </tr>
-            </table>
+        <td></td>
+        <td><input type="submit" value="Simpan" onclick ="this.form.action='ubah_semester';this.form.submit()">
+        <input type="reset" value="Batal" onclick ="this.form.action='batal_semester';this.form.submit()">
+        <td><input type="button" value="Hapus" onclick="this.form.action='hapus_semester';this.form.submit();"></td>
+        </tr>
+        </table>
         </form>
     
     

@@ -25,10 +25,6 @@
         <servlet-class>servlets.Logout</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>Kelas</servlet-name>
-        <servlet-class>servlets.KelasServlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>TambahKelasServlet</servlet-name>
         <servlet-class>servlets.TambahKelasServlet</servlet-class>
     </servlet>
@@ -85,10 +81,6 @@
         <servlet-class>servlets.HalDaftarKelasServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>Semester</servlet-name>
-        <servlet-class>servlets.SemesterServlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>TambahSemester</servlet-name>
         <servlet-class>servlets.TambahSemesterServlet</servlet-class>
     </servlet>
@@ -102,7 +94,7 @@
     </servlet>
     <servlet>
         <servlet-name>HalTambahSemesterServlet</servlet-name>
-        <servlet-class>servlets.HalTambahSemester</servlet-class>
+        <servlet-class>servlets.HalTambahSemesterServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>UbahKelasServlet</servlet-name>
@@ -169,10 +161,6 @@
         <url-pattern>/Logout</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>Kelas</servlet-name>
-        <url-pattern>/kelas</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>AbsensiServlet</servlet-name>
         <url-pattern>/absensi</url-pattern>
     </servlet-mapping>
@@ -223,10 +211,6 @@
     <servlet-mapping>
         <servlet-name>HalDaftarKelas</servlet-name>
         <url-pattern>/daftarkelas</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>Semester</servlet-name>
-        <url-pattern>/semester</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>TambahSemester</servlet-name>

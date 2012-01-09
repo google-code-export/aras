@@ -8,6 +8,8 @@ import entity.DaftarSemester;
 import entity.Semester;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -32,7 +34,8 @@ public class HapusSemesterServlet extends HttpServlet {
             throws ServletException, IOException, NonexistentEntityException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-         HttpSession sessionedit=request.getSession();
+        
+        HttpSession sessionedit=request.getSession();
         
         DaftarSemester daftar = new DaftarSemester();
         Semester semester = (Semester) sessionedit.getAttribute("semester");
@@ -56,7 +59,7 @@ public class HapusSemesterServlet extends HttpServlet {
         }
     }
 
-     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /** 
      * Handles the HTTP <code>GET</code> method.
      * @param request servlet request
@@ -64,8 +67,15 @@ public class HapusSemesterServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-  
-}
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        try {
+            processRequest(request, response);
+        } catch (NonexistentEntityException ex) {
+            Logger.getLogger(HapusKelasServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     /** 
      * Handles the HTTP <code>POST</code> method.
@@ -74,12 +84,22 @@ public class HapusSemesterServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-   
-    
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        try {
+            processRequest(request, response);
+        } catch (NonexistentEntityException ex) {
+            Logger.getLogger(HapusKelasServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     /** 
      * Returns a short description of the servlet.
      * @return a String containing servlet description
      */
-   
-
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }// </editor-fold>
+}
