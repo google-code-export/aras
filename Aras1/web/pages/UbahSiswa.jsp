@@ -14,7 +14,12 @@
 <!DOCTYPE html>
 <% Siswa siswa = (Siswa)request.getAttribute("siswa");%>
 <% List<Kelas> listkelas = (List<Kelas>) request.getAttribute("listkelas");%>
+<% Iterator<Kelas> itKelas = listkelas.iterator();%>
 <% Kelas kelas; %>
+
+<% List<Semester> listsemester = (List<Semester>) request.getAttribute("listsemester");%>
+<% Iterator<Semester> itSemester = listsemester.iterator();%>
+<% Semester semester; %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -35,12 +40,12 @@
                 </tr>
                 <tr>
                     <td> Kelas : </td>
-                    <td><input class="input" type="text" name="kelas" value="<%= siswa.getKelas().getNamakelas() %>"></td>
-                </tr>
+                    <%--<td><input class="input" type="text" name="kelas" value="<%= siswa.getKelas().getNamakelas() %>"></td>
+                </tr>--%>
                 <td>
                     <select name="kelas">    
-                    <% Iterator<Kelas> iterator = listkelas.iterator(); %>
-                    <% while (iterator.hasNext()) { kelas = iterator.next(); 
+                    <%--<% Iterator<Kelas> iterator = listkelas.iterator(); %> --%>
+                    <% while (itKelas.hasNext()) { kelas = itKelas.next(); 
                     if (siswa.getKelas().getId().equals(kelas.getId() )){
                         out.println("<option value=" + kelas.getNamakelas() + "selected=\"selected\">" + kelas.getNamakelas() + "</option>");
                     
@@ -49,12 +54,24 @@
                     }
                     }%>
                     </select>
-                    
                     </td>
                 </tr>
                 <tr>
                     <td> Semester : </td>
-                    <td><input class="input" type="text" name="semester" value="<%= siswa.getSemester().getNamasemester() %>"></td>
+                    <td>
+                    <select name="semester">                    
+                        <%--<% Iterator<Semester> itemester = listsemester.iterator(); %> --%>
+                    <% while (itSemester.hasNext()) { semester = itSemester.next(); 
+                    if (siswa.getSemester().getId().equals(semester.getId() )){
+                        out.println("<option value=" + semester.getNamasemester() + "selected=\"selected\">" + semester.getNamasemester() + "</option>");
+                    
+                    }else { 
+                        out.println("<option value=" + semester.getNamasemester() + ">" + semester.getNamasemester() + "</option>");
+                    }
+                    }%>
+                    </select>
+                    </td>
+                
                 </tr>
                 <tr>
                     <td> Nama Orangtua : </td>

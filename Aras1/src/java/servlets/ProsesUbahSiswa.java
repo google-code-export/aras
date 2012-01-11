@@ -5,8 +5,10 @@
 package servlets;
 
 import entity.DaftarKelas;
+import entity.DaftarSemester;
 import entity.DaftarSiswa;
 import entity.Kelas;
+import entity.Semester;
 import entity.Siswa;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -51,6 +53,10 @@ public class ProsesUbahSiswa extends HttpServlet {
         DaftarKelas daftarkelas = new DaftarKelas();
         List<Kelas> kelas = daftarkelas.getKelas(); 
         request.setAttribute("listkelas", kelas);
+        
+        DaftarSemester daftarsemester = new DaftarSemester();
+        List<Semester> semester = daftarsemester.getSemester();
+        request.setAttribute("listsemester", semester);
         
         HttpSession sessionedit=request.getSession();
         sessionedit.setAttribute("siswa", siswa);

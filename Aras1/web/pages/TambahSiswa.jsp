@@ -85,7 +85,7 @@ p {
           </tr>
         </table>
 <!-- DARI SINI JANGAN LUPA YG LINE 6 JUGA DIGANTI -->  
-    <center>
+    <%--<center>--%>
         <form method="post" action="TambahSiswa">
             <table border=0>
                 <tr>
@@ -166,7 +166,7 @@ p {
                     <td>&nbsp;</td>
                 </tr>
             </table></td>
-    </center>
+            <%--</center>--%>
     </body>
     <!-- SAMPAI SINI  -->
           

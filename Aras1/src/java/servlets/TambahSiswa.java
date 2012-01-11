@@ -81,6 +81,7 @@ public class TambahSiswa extends HttpServlet {
             siswa.setKelas(kelas);
             siswa.setSemester(semester);
             siswa.setNamaortu(namaortu);
+            siswa.setAlamat(alamat);
             siswa.setnmrtlp(nmrtlp);
             
             siswax.addSiswa(siswa);
