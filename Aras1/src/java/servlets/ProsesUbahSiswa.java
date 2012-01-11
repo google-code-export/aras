@@ -44,7 +44,7 @@ public class ProsesUbahSiswa extends HttpServlet {
         Siswa siswa = siswax.findSiswa(id);
         
         DaftarKelas daftarkelas = new DaftarKelas();
-        List<Kelas> kelas = daftarkelas.getKelas(); 
+        List<Kelas> kelas = daftarkelas.getKelasx(); 
         request.setAttribute("listkelas", kelas);
         
         DaftarSemester daftarsemester = new DaftarSemester();

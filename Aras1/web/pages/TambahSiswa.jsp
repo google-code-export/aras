@@ -159,7 +159,7 @@ p {
                     <td colspan="2" align="center"><%=next.getNamasiswa()%></td>
                     <td align="center"><%=next.getKelas().getNamakelas()%></td>
                     <td align="center"><%=next.getAlamat() %></td>
-                    <td align="center" bgcolor="#F4F4F4"><a href="ubahsiswa?id=<%=next.getId()%>"><font color="brown">pilih</font></a></td>
+                    <td align="center" bgcolor="#B9DDF3"><a href="ubahsiswa?id=<%=next.getId()%>"><font color="brown">pilih</font></a></td>
                     
                 </tr>
                 <%}%>
