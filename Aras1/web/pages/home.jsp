@@ -87,7 +87,7 @@ p {
         <td>Berisi Tambah, Ubah, Hapus Kelas</td>
     </tr>
     <tr>
-        <td width="164"><p><a href="semester">Semester</a></p></td>
+        <td width="164"><p><a href="tambahsemester">Semester</a></p></td>
         <td>Berisi Tambah, Ubah, Hapus Semester</td>
     </tr>
     <tr>
