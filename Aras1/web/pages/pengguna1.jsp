@@ -65,10 +65,10 @@ p {
           <tr>
             <td width="19%" align="center"><a href="Home">Halaman Muka</a></td>
             <td width="11%" align="center" bgcolor="#188DC2">Pengguna</td>
-            <td width="10%" align="center">Siswa</td>
-            <td width="11%" align="center">Kelas</td>
-            <td width="11%" align="center">Semester</td>
-            <td width="10%" align="center">Absensi</td>
+            <td width="10%" align="Siswa">Siswa</td>
+            <td width="11%" align="center"><a href="tambahkelas">Kelas</a></td>
+            <td width="11%" align="center"><a href="tambahsemester">Semester</a></td>
+            <td width="10%" align="center"><a href="absensikelas">Absensi</a></td>
             <td width="11%" align="center">Laporan</td>
             <td width="17%" align="center"><a href="Logout">Log Out</a></td>
           </tr>
@@ -126,7 +126,7 @@ p {
                     <th colspan="2" align="center">NIP</th>
                     <th align="center">Peran</th>
                     <th width="11%" align="center">Ubah/Hapus</th>
-                    <th width="3%" align="left">&nbsp;</th>
+                    
                 </tr>
                 <% while (iterator.hasNext()) {%>
                 <% Pengguna next = iterator.next();%>
@@ -136,7 +136,7 @@ p {
                     <td colspan="2" align="center"><%=next.getNip()%></td>
                     <td align="center"><%=next.getPeran()%></td>
                     <td align="center" bgcolor="#F4F4F4"><a href="ubahpengguna?id=<%=next.getId()%>"><font color="brown">pilih</font></a></td>
-                    <td bgcolor="#F4F4F4">&nbsp;</td>
+                    
                 </tr>
                 <%}%>
                 <tr>

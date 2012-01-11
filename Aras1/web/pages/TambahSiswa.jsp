@@ -75,11 +75,11 @@ p {
         <td width="85%" valign="top"><table width="100%" border="0">
           <tr>
             <td width="19%" align="center"><a href="Home">Halaman Muka</a></td>
-            <td width="11%" align="center">Pengguna</td>
+            <td width="11%" align="center"><a href="penggua">Pengguna</a></td>
             <td width="10%" align="center" bgcolor="#188DC2">Siswa</td>
-            <td width="11%" align="center">Kelas</td>
-            <td width="11%" align="center">Semester</td>
-            <td width="10%" align="center">Absensi</td>
+            <td width="11%" align="center"><a href="tambahkelas">Kelas</a></td>
+            <td width="11%" align="center"><a href="tambahsemester">Semester</a></td>
+            <td width="10%" align="center"><a href="absensikelas">Absensi</a></td>
             <td width="11%" align="center">Laporan</td>
             <td width="17%" align="center"><a href="Logout">Log Out</a></td>
           </tr>
