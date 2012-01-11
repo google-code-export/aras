@@ -18,7 +18,7 @@ import jpa.exceptions.NonexistentEntityException;
  * @author aan
  */
 public class DaftarAbsensi {
-     private List<Absensi> absensi;
+    private List<Absensi> absensi;
     public DaftarAbsensi() {
         emf = Persistence.createEntityManagerFactory("ArasPU"); 
     }
@@ -35,6 +35,22 @@ public class DaftarAbsensi {
         EntityManager em = getEntityManager();
         try {
             Query q = em.createQuery("SELECT a FROM Absensi AS a") ;
+            absensix = q.getResultList ();
+           
+        } finally {
+            em.close();
+        }
+        return absensix;
+    }
+    
+  //daftar absensi perkelas
+    public List<Absensi> getAbsensis(Long idKelas) {
+        List<Absensi> absensix = new ArrayList<Absensi>();
+
+        EntityManager em = getEntityManager();
+        try {
+            Query q = em.createQuery("SELECT a FROM Absensi AS a where a.idKelas=:idKelas") ;
+            q.setParameter("idKelas", idKelas);
             absensix = q.getResultList ();
            
         } finally {
@@ -98,15 +114,15 @@ public class DaftarAbsensi {
         }
     }
 
-     public Absensi getAbsensi(String namasiswa, String keterangan) {
+     public Absensi getAbsensi(Long idSiswa, Long idKelas) {
         Absensi absensix = null;
         EntityManager em = getEntityManager();
         try {
-            boolean hasilCheck = this.check(namasiswa, keterangan);
+            boolean hasilCheck = this.check(idSiswa, idKelas);
             if (hasilCheck) {
-                javax.persistence.Query q = em.createQuery("SELECT a FROM Absensi AS a WHERE a.namasiswa=:namasiswa AND a.keterangan=:keterangan");
-                q.setParameter("namasiswa", namasiswa);
-                q.setParameter ("keterangan", keterangan);
+                javax.persistence.Query q = em.createQuery("SELECT a FROM Absensi AS a WHERE a.idSiswa=:idSiswa AND a.idKelas=:idKelas");
+                q.setParameter("idSiswa", idSiswa);
+                q.setParameter ("idKelas", idKelas);
                 absensix = (Absensi) q.getSingleResult();
             }
         } finally {
@@ -115,9 +131,21 @@ public class DaftarAbsensi {
         return absensix;
     }
           
-    private boolean check(String namasiswa, String keterangan) {
-        
-        
-        throw new UnsupportedOperationException("Not yet implemented");
+        public boolean check(Long idSiswa, Long idKelas) {
+        boolean result = false;
+        EntityManager em = getEntityManager();
+        try {
+            Query q = (Query) em.createQuery("SELECT COUNT (a) FROM Absensi AS a WHERE a.idSiswa=:idSiswa AND a.idKelas=:idKelas");
+                q.setParameter("idSiswa", idSiswa);
+                q.setParameter("idKelas", idKelas);
+            int jumlahSiswa = ((Long) q.getSingleResult()).intValue();
+            if (jumlahSiswa == 1) {
+                result = true;
+            }
+        } finally {
+            em.close();
+        }
+        return result;
     }
+
 }

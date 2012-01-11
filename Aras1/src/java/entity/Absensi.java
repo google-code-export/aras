@@ -23,28 +23,44 @@ public class Absensi implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @ManyToOne
+/*    @ManyToOne
     private Semester semester;
-    private double jmlAbsensi;
+    private double jmlAbsensi;*/
     @ManyToOne
     private Siswa siswa;
     private String keterangan;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date tglAbsensi;  
-    @ManyToOne
-    private Kelas kelas;
+    private Long idSiswa;
+
+    public Long getIdSiswa() {
+        return idSiswa;
+    }
+
+    public void setIdSiswa(Long idSiswa) {
+        this.idSiswa = idSiswa;
+    }
+    private Long  idKelas;
+
+    public Long getIdKelas() {
+        return idKelas;
+    }
+
+    public void setIdKelas(Long idKelas) {
+        this.idKelas = idKelas;
+    }
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
     }
     
-    public Kelas getKelas() {
+   /* public Kelas getKelas() {
         return kelas;
     }
 
     public void setKelas(Kelas kelas) {
         this.kelas = kelas;
-    }
+    }*/
 
     public String getKeterangan() {
         return keterangan;
@@ -54,14 +70,14 @@ public class Absensi implements Serializable {
         this.keterangan = keterangan;
     }
 
-    public double getJmlAbsensi() {
+ /*   public double getJmlAbsensi() {
         return jmlAbsensi;
     }
 
     public void setJmlAbsensi(double jmlAbsensi) {
         this.jmlAbsensi = jmlAbsensi;
     }
-
+*/
     public Date getTglAbsensi() {
         return tglAbsensi;
     }
@@ -74,14 +90,14 @@ public class Absensi implements Serializable {
         return siswa;
     }
 
-    public Semester getSemester() {
+  /*  public Semester getSemester() {
         return semester;
     }
 
     public void setSemester(Semester semester) {
         this.semester = semester;
     }
-
+*/
     public void setSiswa(Siswa siswa) {
         this.siswa = siswa;
     }

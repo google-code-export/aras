@@ -14,6 +14,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -32,14 +33,18 @@ public class AbsensiServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
+
+        HttpSession sesAbs = request.getSession(true);
+        Long idKelas=Long.parseLong(request.getParameter("id"));
         
         DaftarAbsensi daftar = new DaftarAbsensi();
-        List <Absensi> absen = (List <Absensi>) daftar.getAbsensis();
+        List<Absensi> absen = (List<Absensi>) daftar.getAbsensis(idKelas);
         //List <Absensi> absen = (List <Absensi>) daftar.getAbsensi();
-        
+
         request.setAttribute("absen", absen);
-        
-        
+        sesAbs.setAttribute("idKelas", idKelas);
+
+
         try {
             /* TODO output your page here
             out.println("<html>");
@@ -53,7 +58,7 @@ public class AbsensiServlet extends HttpServlet {
              */
             RequestDispatcher rdp = request.getRequestDispatcher("pages/absensi.jsp");
             rdp.forward(request, response);
-        } finally {            
+        } finally {
             out.close();
         }
     }

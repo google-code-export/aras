@@ -17,10 +17,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -40,26 +42,38 @@ public class TambahAbsensiServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         
+        HttpSession sesIdKls = request.getSession(true);
+        Long idKelas=(Long)sesIdKls.getAttribute("idKelas");
+        
         String dateString = request.getParameter("tgl");
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yy");
         Date tglTran = dateFormat.parse(dateString);
-        
-        String keterangan = (String) request.getAttribute("keterangan");
-        
-        DaftarAbsensi daftar = new DaftarAbsensi ();
-        Absensi absensi = new Absensi ();
-        
-        DaftarSiswa dsis = new DaftarSiswa ();
+
+        String keterangan = (String) request.getParameter("keterangan");
+
+        DaftarAbsensi daftar = new DaftarAbsensi();
+        Absensi absensi = new Absensi();
+
+        DaftarSiswa dsis = new DaftarSiswa();
         Siswa sis = dsis.findSiswa(Long.parseLong(request.getParameter("nis")));
-        
+
         absensi.setTglAbsensi(tglTran);
         absensi.setSiswa(sis);
+        absensi.setIdSiswa(sis.getId());
         absensi.setKeterangan(keterangan);
-        
-        daftar.addAbsensi(absensi);
-        
+        absensi.setIdKelas(idKelas);
+
+        if (daftar.check(sis.getId(), idKelas)==true){
+            request.setAttribute("errorAbsen", "Siswa ini sudah diabsen hari ini");
+        }
+             
+        else{
+            daftar.addAbsensi(absensi);
+        }
         try {
-            response.sendRedirect("absensi");
+            RequestDispatcher rdp = request.getRequestDispatcher("pages/absensi.jsp");
+            rdp.forward(request, response);
+            //response.sendRedirect("absensi");
             /* TODO output your page here
             out.println("<html>");
             out.println("<head>");
@@ -70,7 +84,7 @@ public class TambahAbsensiServlet extends HttpServlet {
             out.println("</body>");
             out.println("</html>");
              */
-        } finally {            
+        } finally {
             out.close();
         }
     }

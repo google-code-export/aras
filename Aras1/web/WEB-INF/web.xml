@@ -144,6 +144,10 @@
         <servlet-name>SimpanUbahSiswa</servlet-name>
         <servlet-class>servlets.SimpanUbahSiswa</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AbsensiKelas</servlet-name>
+        <jsp-file>/pages/absensikelas.jsp</jsp-file>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -287,6 +291,10 @@
     <servlet-mapping>
         <servlet-name>SimpanUbahSiswa</servlet-name>
         <url-pattern>/SimpanUbahSiswa</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AbsensiKelas</servlet-name>
+        <url-pattern>/absensikelas</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

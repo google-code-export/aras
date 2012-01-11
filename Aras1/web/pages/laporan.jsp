@@ -1,10 +1,10 @@
-<%@page import="entity.DaftarAbsensi"%>
+<%@page import="entity.DaftarLaporan"%>
 <%@page import="java.util.Date"%>
 <%@page import="java.text.DateFormat"%>
 <%@page import="entity.DaftarSiswa"%>
 <%@page import="entity.Siswa"%>
 <%@page import="java.util.Iterator"%>
-<%@page import="entity.Absensi"%>
+<%@page import="entity.Laporan"%>
 <%@page import="java.util.List"%>
 
         
@@ -13,21 +13,16 @@
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
 <% HttpSession sesAbs = request.getSession(true);%>
         <%Long idKelas=(Long)sesAbs.getAttribute("idKelas");%>
-        <% DaftarAbsensi dafAb=new DaftarAbsensi();%>
-        <% List <Absensi> absen =dafAb.getAbsensis(idKelas) ; %>
-        <% Iterator <Absensi> itabsen = absen.iterator (); %>
-        <% DaftarSiswa dafsiswa=new DaftarSiswa();%>
-        <% List <Siswa> siswa = dafsiswa.getSiswas(idKelas); %>
-        <% Iterator <Siswa> itsiswa = siswa.iterator (); %>
-        
-        <%Date tanggal = new Date();%>
-
+        <% DaftarLaporan dafAb=new DaftarLaporan();%>
+        <% Long kls=Long.parseLong("1001");%>
+        <% List <Laporan> absen =dafAb.getLaporan(1,kls) ; %>
+        <% Iterator <Laporan> itabsen = absen.iterator (); %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Absensi</title>
+<title>Laporan</title>
 <style type="text/css">
 body,td,th {
 	color: #000;
@@ -78,8 +73,8 @@ p {
             <td width="10%" align="center">Siswa</td>
             <td width="11%" align="center">Kelas</td>
             <td width="11%" align="center">Semester</td>
-            <td width="10%" align="center" bgcolor="#188DC2">Absensi</td>
-            <td width="11%" align="center">Laporan</td>
+            <td width="10%" align="center">Absensi</td>
+            <td width="11%" align="center"  bgcolor="#188DC2">Laporan</td>
             <td width="17%" align="center"><a href="Logout">Log Out</a></td>
           </tr>
         </table>
@@ -90,36 +85,10 @@ p {
     </head>
     
     <body>
-        <h1>Tambah Absensi</h1>
+        <h1>Tambah Laporan</h1>
         <h3 align="center"><font color="red">${errorAbsen}</font></h3>
         <form method="post" action="tambah_absensi">
         <table>
-             <tr>
-                 <td width="10%">&nbsp;</td>
-                 <td >Tanggal</td><td><input type="text" name="tgl" value="<%=DateFormat.getDateInstance(3).format(tanggal)%>"></td>
-             </tr>
-             <tr>
-                 <td width="10%">&nbsp;</td>
-                 <td >NIS</td><td><select name="nis">
-                  <% while (itsiswa.hasNext() ) {%>
-                    <% Siswa nsiswa = itsiswa.next (); %>
-                     <option value="<%=nsiswa.getId()%>"><%=nsiswa.getNis()+"-"+nsiswa.getNamasiswa()%></option> %>        
-                    <%}%>
-                     
-                 <td width="10%">&nbsp;</td>
-                 <td>Keterangan</td><td><select name="keterangan">
-                       <option value="">Silakan Pilih</option>
-                       <option value="Sakit">Sakit</option>
-                       <option value="Izin">Izin</option>
-                       <option value="Tanpa Keterangan">TK</option>
-                   </select></td>
-              </tr> 
-            
-              
-                <tr> <td>
-       <td> <input  value="Simpan" type="submit"></td>
-        
-                    </td></tr>
         </table>
                    
         <%--
@@ -146,7 +115,7 @@ p {
 
         
             <% while (itabsen.hasNext() ) {%>
-                <% Absensi tabsen = itabsen.next (); %>
+                <% Laporan tabsen = itabsen.next (); %>
                 <tr>
                     <td>&nbsp;</td>
                     <td width="10%" align="center"><%=tabsen.getSiswa().getNis() %></td>

@@ -91,7 +91,7 @@ p {
         <td>Berisi Tambah, Ubah, Hapus Semester</td>
     </tr>
     <tr>
-        <td width="164"><p>Absensi</p></td>
+        <td width="164"><p><a href="absensikelas">Absensi</a></p></td>
         <td>Berisi halaman absensi siswa</td>
     </tr>
     <tr>
