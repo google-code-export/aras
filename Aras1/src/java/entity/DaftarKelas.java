@@ -96,18 +96,18 @@ public class DaftarKelas implements Serializable {
     }
     
      
-    public List<Kelas> getKelas() {
-        List<Kelas> Kelass = new ArrayList<Kelas>();
+    public List<Kelas> getKelasx() {
+        List<Kelas> Kelasx = new ArrayList<Kelas>();
 
         EntityManager em = getEntityManager();
         try {
             Query q = em.createQuery("SELECT object(o) FROM Kelas AS o");
-            Kelass = q.getResultList();
+            Kelasx = q.getResultList();
 
         } finally {
             em.close();
         }
-        return Kelass;
+        return Kelasx;
     }
 
     public void editKelas(Kelas kelas) {

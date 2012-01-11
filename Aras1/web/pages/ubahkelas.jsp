@@ -4,12 +4,20 @@
     Author     : Heti Liyana
 --%>
 
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.List"%>
+<%@page import="entity.DaftarPengguna"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.text.DateFormat"%>
 <%@page import="entity.Kelas"%>
+<%@page import="entity.Pengguna"%>
 
 <% DateFormat df = new SimpleDateFormat("dd/MM/yyyy");%>
 <% Kelas kelas =(Kelas)request.getAttribute("kelas");%>
+
+<% DaftarPengguna dafpengguna = new DaftarPengguna();%>
+<% List<Pengguna> pengguna = dafpengguna.getPengguna();%>
+<% Iterator<Pengguna> itepengguna = pengguna.iterator();%>
 
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -74,15 +82,21 @@ p {
           <h1>Ubah / Hapus Kelas</h1>
         
           <form method="post" action="">
+             
     <table border="0">
      
     <tr>
-        <td>Nama Kelas</td>
+        <td><div align="left">Nama Kelas :</div></td>
         <td><input class="input" type="text" name="namakelas" value="<%= kelas.getNamakelas()%>"></td>
     </tr>
     <tr>
-        <td>Guru Wali</td>
-        <td><input class="input" type="text" name="namaguru" value="<%= kelas.getNamaguru()%>"></td>
+        <td><div align="left">Guru Wali :</div></td>
+        <td><select name="namaguru" value="<%= kelas.getNamaguru()%>">
+                    <% while (itepengguna.hasNext() ) {%>
+                    <% Pengguna npengguna = itepengguna.next (); %>
+                    <option value="<%=npengguna.getNip()+"-"+npengguna.getNama()%>"><%=npengguna.getNip() +"-"+npengguna.getNama()%></option> %>        
+                    <%}%>
+                    </td>
     </tr>    
         
     

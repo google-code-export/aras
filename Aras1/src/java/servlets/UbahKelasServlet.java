@@ -5,7 +5,9 @@
 package servlets;
 
 import entity.DaftarKelas;
+import entity.DaftarPengguna;
 import entity.Kelas;
+import entity.Pengguna;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -32,9 +34,8 @@ public class UbahKelasServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-          
         HttpSession session = request.getSession();
-        
+                
         DaftarKelas kelasx = new DaftarKelas();
         Kelas kelas = (Kelas)session.getAttribute("kelas");
         
@@ -48,7 +49,8 @@ public class UbahKelasServlet extends HttpServlet {
         kelas.setNamaguru(namaguru);
            
         
-            kelasx.editKelas(kelas);
+        kelasx.editKelas(kelas);
+                
         try {
             RequestDispatcher rdp = request.getRequestDispatcher("pages/tambahkelas.jsp");
             rdp.forward(request, response);

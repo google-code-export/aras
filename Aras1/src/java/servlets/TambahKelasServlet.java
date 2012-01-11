@@ -5,7 +5,9 @@
 package servlets;
 
 import entity.DaftarKelas;
+import entity.DaftarPengguna;
 import entity.Kelas;
+import entity.Pengguna;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -13,6 +15,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -32,19 +35,23 @@ public class TambahKelasServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
+        HttpSession session = request.getSession();
         
         String nama = request.getParameter("namakelas");
         String guru = request.getParameter("namaguru");
         
-        DaftarKelas daftar = new DaftarKelas ();
-        Kelas kelas = new Kelas ();
+        DaftarKelas klas = new DaftarKelas();
+        Kelas kls = new Kelas();
+              
+        kls.setNamakelas(nama);
+        kls.setNamaguru(guru);
         
         if (nama.isEmpty() || guru.isEmpty() ) {
             request.setAttribute("Peringatan","Semua kolom harus di isi!");
             RequestDispatcher rdp = request.getRequestDispatcher("pages/tambahkelas.jsp");
             rdp.forward(request, response);
-        
-        }else if (daftar.check(nama,guru) == true ) {
+                   
+        }else if (klas.check(nama, guru) == true ) {
             request.setAttribute("Peringatan", "Nama Kelas sudah digunakan");
             RequestDispatcher rdp = request.getRequestDispatcher("pages/tambahkelas.jsp");
             rdp.forward(request, response);
@@ -56,13 +63,11 @@ public class TambahKelasServlet extends HttpServlet {
         
        
         }else{
-           
+            
+        kls.setNamakelas(nama);
+        kls.setNamaguru(guru);
         
-        
-        kelas.setNamakelas(nama);
-        kelas.setNamaguru(guru);
-        
-        daftar.addKelas(kelas);
+        klas.addKelas(kls);
             RequestDispatcher rdp = request.getRequestDispatcher("pages/tambahkelas.jsp");
             rdp.forward(request, response);
         //response.sendRedirect("tambahkelas");

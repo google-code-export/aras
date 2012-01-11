@@ -1,3 +1,8 @@
+<%-- 
+    Document   : tambahkelas
+    Created on : Jan 3, 2012, 2:09:36 PM
+    Author     : Heti Liyana
+--%>
 
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.text.DateFormat"%>
@@ -5,11 +10,16 @@
 <%@page import="entity.Kelas"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
+<%@page import="entity.DaftarPengguna"%>
+<%@page import="entity.Pengguna"%>
 
 <% DateFormat df = new SimpleDateFormat("dd/MM/yyyy");%>
 <% DaftarKelas daftar = new DaftarKelas();%>
-<% List<Kelas> kelas = daftar.getKelas();%>
-<% Iterator<Kelas> iterator = kelas.iterator();%>
+<% List<Kelas> kelas = daftar.getKelasx();%>
+<% Iterator<Kelas> itekelas = kelas.iterator();%>
+<% DaftarPengguna daftarguru = new DaftarPengguna();%>
+<% List<Pengguna> pengguna = daftarguru.getPengguna();%>
+<% Iterator<Pengguna> itepengguna = pengguna.iterator();%>
 
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -17,6 +27,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Tambah Kelas</title>
+
 <style type="text/css">
 body,td,th {
 	color: #000;
@@ -48,43 +59,44 @@ p {
     <table width="100%" border="0">
       <tr>
         <td bgcolor="#FFFFFF"><img src="images/arasz.JPG" width="936" height="142" />&nbsp;</td>
-
       </tr>
     </table>
   </div>
-
+  
   <div class="content">
     <table width="100%" border="0">
       <tr>
           <td width="15%" height="241"><img src="images/bg4a.JPG" width="180" height="600" />&nbsp;</td>
         <td width="85%" valign="top"><table width="100%" border="0">
           <tr>
-             <td width="19%" align="center"><a href="Home">Halaman Muka</a></td>
-            <td width="11%" align="center">Pengguna</td>
-            <td width="10%" align="center">Siswa</td>
+            <td width="17%" align="center"><a href="Home">Halaman Muka</a></td>
+            <td width="14%" align="center"><a href="Pengguna">Pengguna</a></td>
+            <td width="10%" align="center"><a href="SiswaServlet">Siswa</a></td>
             <td width="11%" align="center" bgcolor="#188DC2">Kelas</td>
             <td width="11%" align="center"><a href="daftarsemester">Semester</a></td>
             <td width="10%" align="center">Absensi</td>
             <td width="11%" align="center">Laporan</td>
             <td width="12%" align="center"><a href="Logout">Log Out</a></td>
           </tr>
-               
         </table>
-            
 <!-- DARI SINI JANGAN LUPA YG LINE 6 JUGA DIGANTI --> 
 
           <h1>Menambah Kelas</h1>
         <form action="tambah_kelas" method="POST">
+             
           <table border="0">
               
       <tr>
-
                     <td><div align="right">Nama Kelas :</div></td>
                     <td><input class="input" type="text" name="namakelas"></td>
                 </tr>
                 <tr>
-                    <td><div align="right">Guru Wali :</div></td>
-                    <td><input class="input" type="text" name="namaguru"></td>
+                    <td><div align="right">Guru Wali :</div></td><td><select name="namaguru">
+                    <% while (itepengguna.hasNext() ) {%>
+                    <% Pengguna npengguna = itepengguna.next (); %>
+                    <option value="<%=npengguna.getNip()+"-"+npengguna.getNama()%>"><%=npengguna.getNip() +"-"+npengguna.getNama()%></option> %>        
+                    <%}%>
+                    </td>
                 </tr>    
       <tr>
 
@@ -93,10 +105,10 @@ p {
                 
                 </tr>
             </table>
-        </form>
         
-       <h1>Daftar Kelas</h1>
-<form>
+        
+       <h2>Daftar Kelas</h2>
+
 <table width="650" border="0">
    
     <tr>
@@ -112,8 +124,8 @@ p {
                   
                    
                 </tr>
-                <% while (iterator.hasNext()) {%>
-                <% Kelas next = iterator.next();%>
+                <% while (itekelas.hasNext()) {%>
+                <% Kelas next = itekelas.next();%>
                 <tr>
                     <td>&nbsp;</td>
                     <td width="10%" align="right"><%=next.getId()%></td>
@@ -127,10 +139,8 @@ p {
                     <td>&nbsp;</td>
                 </tr>
             </table></td>
-
-
                 </form>
-                
+               
              <!-- SAMPAI SINI  -->
        <p>&nbsp;</p>
 <p>&nbsp;</p></td>
