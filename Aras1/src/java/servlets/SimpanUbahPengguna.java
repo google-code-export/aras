@@ -35,9 +35,6 @@ public class SimpanUbahPengguna extends HttpServlet {
         
         HttpSession session = request.getSession();
         
-        
-        
-        
         DaftarPengguna penggunax = new DaftarPengguna();
         Pengguna pengguna = (Pengguna)session.getAttribute("pengguna");
         

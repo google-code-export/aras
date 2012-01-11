@@ -38,14 +38,14 @@ public class ProsesUbahSiswa extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         
-        /*HttpSession session = request.getSession();
+//        HttpSession session = request.getSession();
                 
-        DaftarSiswa siswax = new DaftarSiswa();
-        Siswa siswa = (Siswa)session.getAttribute("siswa");
+//        DaftarSiswa siswax = new DaftarSiswa();
+//        Siswa siswa = (Siswa)session.getAttribute("siswa");
         
-        //Long id = siswa.getId(); //
-        Long.parseLong(request.getParameter("id") );*/
+//        Long id = siswa.getId(); 
         Long id = Long.parseLong(request.getParameter("id") );
+        //Long id = siswa.getId(); //Long.parseLong(request.getParameter("id") );
         
         DaftarSiswa siswax = new DaftarSiswa();
         Siswa siswa = siswax.findSiswa(id);

@@ -52,7 +52,7 @@ public class SimpanUbahSiswa extends HttpServlet {
         String idkelas = request.getParameter("kelas");
         String idsemester = request.getParameter("semester");
         
-        if (nis.isEmpty() || namasiswa.isEmpty() || idkelas.isEmpty() || idsemester.isEmpty() || namaortu.isEmpty() || alamat.isEmpty() || nmrtlp.isEmpty()){
+/*        if (nis.isEmpty() || namasiswa.isEmpty() || idkelas.isEmpty() || idsemester.isEmpty() || namaortu.isEmpty() || alamat.isEmpty() || nmrtlp.isEmpty()){
             request.setAttribute("Peringatan", "Semua kolom harus di isi");
             RequestDispatcher rdp = request.getRequestDispatcher("pages/TambahSiswa.jsp");
             rdp.forward(request, response);
@@ -72,7 +72,7 @@ public class SimpanUbahSiswa extends HttpServlet {
             RequestDispatcher rdp = request.getRequestDispatcher("pages/TambahSiswa.jsp");
             rdp.forward(request, response);
         
-        }else{
+        }else{*/
             
             DaftarKelas daftarkelas = new DaftarKelas();
             Kelas kelas = daftarkelas.getKelas(Long.parseLong(request.getParameter("kelas")));
@@ -90,7 +90,7 @@ public class SimpanUbahSiswa extends HttpServlet {
             siswax.addSiswa(siswa);
             RequestDispatcher rdp = request.getRequestDispatcher("pages/TambahSiswa.jsp");
             rdp.forward(request, response);
-        }
+//        }
         try {
             /* TODO output your page here
             out.println("<html>");

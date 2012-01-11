@@ -25,7 +25,7 @@
 <% Iterator<Semester> itSemester = semester.iterator();%>
 
 <% DaftarSiswa daftar = new DaftarSiswa();%>
-<% List<Siswa> siswa = daftar.getSiswa();%>
+<% List<Siswa> siswa = daftar.getSiswas();%>
 <% Iterator<Siswa> iterator = siswa.iterator();%>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -147,8 +147,9 @@ p {
                     <th width="24%" align="center">N I S</th>
                     <th colspan="2" align="center">Nama Siswa</th>
                     <th align="center">Kelas</th>
+                    <th align="center">Alamat</th>
                     <th width="11%" align="center">Ubah/Hapus</th>
-                    <th width="3%" align="left">&nbsp;</th>
+                    
                 </tr>
                 <% while (iterator.hasNext()) {%>
                 <% Siswa next = iterator.next();%>
@@ -157,8 +158,9 @@ p {
                     <td align="center"><%=next.getNis()%></td>
                     <td colspan="2" align="center"><%=next.getNamasiswa()%></td>
                     <td align="center"><%=next.getKelas().getNamakelas()%></td>
+                    <td align="center"><%=next.getAlamat() %></td>
                     <td align="center" bgcolor="#F4F4F4"><a href="ubahsiswa?id=<%=next.getId()%>"><font color="brown">pilih</font></a></td>
-                    <td bgcolor="#F4F4F4">&nbsp;</td>
+                    
                 </tr>
                 <%}%>
                 <tr>

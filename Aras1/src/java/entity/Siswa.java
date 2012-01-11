@@ -21,6 +21,16 @@ public class Siswa implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    
+    public Long getIdKelas() {
+        return idKelas;
+    }
+
+    public void setIdKelas(Long idKelas) {
+        this.idKelas = idKelas;
+    }
+    
+    private Long idKelas;
     private String nis;
     private String namasiswa;
     //private String kelas; //ambil dari tabel lain

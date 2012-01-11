@@ -28,12 +28,27 @@ public class DaftarSiswa {
         return emf.createEntityManager();
     }
 
-    public List<Siswa> getSiswa() {
+    public List<Siswa> getSiswas() {
         List<Siswa> siswax = new ArrayList<Siswa>();
 
         EntityManager em = getEntityManager();
         try {
             Query q = em.createQuery("SELECT a FROM Siswa AS a");
+            siswax = q.getResultList();
+
+        } finally {
+            em.close();
+        }
+        return siswax;
+    }
+    
+    public List<Siswa> getSiswas(Long idKelas) {
+        List<Siswa> siswax = new ArrayList<Siswa>();
+
+        EntityManager em = getEntityManager();
+        try {
+            Query q = em.createQuery("SELECT a FROM Siswa AS a where a.idKelas=:idKelas");
+            q.setParameter("idKelas", idKelas);
             siswax = q.getResultList();
 
         } finally {
