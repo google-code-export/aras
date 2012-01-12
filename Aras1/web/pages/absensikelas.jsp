@@ -8,7 +8,7 @@
 
 <% DateFormat df = new SimpleDateFormat("dd/MM/yyyy");%>
 <% DaftarKelas daftar = new DaftarKelas();%>
-<% List<Kelas> kelas = daftar.getKelas();%>
+<% List<Kelas> kelas = daftar.getKelasx();%>
 <% Iterator<Kelas> iterator = kelas.iterator();%>
 
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>

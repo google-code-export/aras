@@ -16,7 +16,7 @@
 <!DOCTYPE html>
 <%-- untuk memilih daftar kelas--%>
 <% DaftarKelas daftarkelas = new DaftarKelas();%>
-<% List<Kelas> kelas = daftarkelas.getKelas();%>
+<% List<Kelas> kelas = daftarkelas.getKelasx();%>
 <% Iterator<Kelas> itKelas = kelas.iterator();%>
 
 <%-- memiloh daftar semester --%>

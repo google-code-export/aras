@@ -72,9 +72,9 @@ public class DaftarSiswaTest {
     @Test
     public void testFindSiswa() {
         System.out.println("findSiswa");
-        Long id = Long.parseLong("901");
+        Long id = Long.parseLong("2251");
         DaftarSiswa instance = new DaftarSiswa();
-        String expResult = "heti";
+        String expResult = "agus";
         Siswa result = instance.findSiswa(id);
         String hasil = result.getNamasiswa();
         try {
@@ -117,7 +117,7 @@ public class DaftarSiswaTest {
         System.out.println("updateSiswa");
         Siswa siswa;
         DaftarSiswa instance = new DaftarSiswa();
-        List<Siswa> list = instance.getSiswa();
+        List<Siswa> list = instance.getSiswas();
         siswa = list.get(1);
         siswa.setNamaortu("margono");
         try {
@@ -152,11 +152,11 @@ public class DaftarSiswaTest {
     public void testGetSiswa_String_String() {
         System.out.println("getSiswa");
         String nis = "123456";
-        String namasiswa = "heti";
+        String namasiswa = "agus";
         DaftarSiswa instance = new DaftarSiswa();
         Siswa result = instance.getSiswa(nis, namasiswa);
         String resultNamasiswa = result.getNamasiswa();
-        String expResult = "heti";
+        String expResult = "agus";
         try {
             assertEquals(expResult, resultNamasiswa);
             System.out.println("Sukses");
