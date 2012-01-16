@@ -76,6 +76,7 @@ p {
 <!-- DARI SINI JANGAN LUPA YG LINE 6 JUGA DIGANTI --> 
 
     <form method="post" action="prosestambahpengguna">
+        <h2>Tambah Pengguna</h2>
             <table border=0>
                 ${Peringatan}
                 <tr>
@@ -118,8 +119,9 @@ p {
             </table>
         </form>
         
-        <table border=0>
-            &nbsp;
+        <h2>Daftar Pengguna</h2>
+                <table border=0>
+            
          <tr>
                     <td width="10%" align="center">&nbsp;</td>
                     <th width="24%" align="center">Nama Pengguna</th>

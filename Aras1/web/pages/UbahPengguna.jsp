@@ -65,7 +65,8 @@ p {
           </tr>
         </table>
 <!-- DARI SINI JANGAN LUPA YG LINE 6 JUGA DIGANTI --> 
-        <center><form method="post" action="">
+        <form method="post" action="">
+            <h2> Ubah Pengguna </h2>
     <table border=0>
         ${Peringatan}
     <tr>
@@ -119,7 +120,7 @@ p {
     </tr>
     </table>
     </form>
-        </center>
+        
      <!-- SAMPAI SINI  -->
           
           <p>&nbsp;</p>

@@ -87,6 +87,7 @@ p {
 <!-- DARI SINI JANGAN LUPA YG LINE 6 JUGA DIGANTI -->  
     <%--<center>--%>
         <form method="post" action="TambahSiswa">
+            <h2>Tambah Siswa</h2>
             <table border=0>
                 <tr>
                     <td> N I S  </td>
@@ -141,7 +142,7 @@ p {
         </form>
             
             <table border=0>
-            &nbsp;
+            <h2>Daftar Siswa</h2>
          <tr>
                     <td width="10%" align="center">&nbsp;</td>
                     <th width="24%" align="center">N I S</th>
