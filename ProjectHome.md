@@ -1,0 +1,1 @@
+Aplikasi Rekapitulasi Absensi Siswa yang dibuatbertujuan untuk meningkatkan kedisiplinan siswa, membantu pengelolaan absensi siswa di sekolah dan membantu pengawasan oleh orangtua/ wali murid kepada anaknya melalui fasilitas sms gateway.
